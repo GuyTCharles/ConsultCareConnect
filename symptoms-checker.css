@@ -1,0 +1,591 @@
+/* =================================
+   SYMPTOMS CHECKER PAGE STYLING
+   ================================= */
+/* General Container Styling */
+.symptom-checker-container {
+    max-width: 800px;
+    margin: 35px auto;
+    /* Adds space above and below */
+    padding: 20px 40px;
+    /* Better spacing */
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f4f8;
+    color: #333;
+    border-radius: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 2px solid #e0e0e0;
+}
+
+/* ================================
+   Header Styling
+   ================================ */
+.symptom-checker-header {
+    background-color: transparent;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.symptom-checker-header h1 {
+    font-size: 1.9rem;
+    font-weight: bold;
+    color: #000;
+}
+
+/* ================================
+   Search Section Styling
+   ================================ */
+.symptom-search-section {
+    text-align: center;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+    max-width: 600px;
+}
+
+.symptom-search-section h2 {
+    font-size: 1.5rem;
+    color: #1d4e89;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.symptom-search-section p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 12px;
+}
+
+/* ================================
+   Additional Information Section
+   ================================ */
+.additional-info {
+    margin-top: 30px;
+}
+
+.additional-info h3 {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.info-link {
+    display: block;
+    margin-bottom: 10px;
+    color: #1d9bf0;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.info-link:hover {
+    color: #154572;
+    text-decoration: underline;
+}
+
+/* ================================
+   Google Custom Search Styling
+   ================================ */
+.symptom-search-section .gsc-control-cse {
+    display: block !important;
+    background: rgba(180, 225, 255, 1) !important;
+    /* Black with Light Opacity */
+    color: #333 !important;
+    font-family: 'Arial', sans-serif !important;
+    border-radius: 10px !important;
+}
+
+/* Ensure the container is visible */
+.symptom-search-section .gsc-control-cse {
+    border-radius: 10px !important;
+}
+
+.gsc-search-button {
+    background: #2563eb !important;
+    border: none !important;
+    border-radius: 5px !important;
+    padding: 5px 10px !important;
+}
+
+/* Hover Effect for Search Button */
+.gsc-search-button:hover {
+    background: #154572 !important;
+    transform: none !important;
+}
+
+/* Styling for the Search Results */
+.gs-title {
+    font-size: 1rem !important;
+    color: hsl(210, 80%, 40%) !important;
+}
+
+.gs-title:hover {
+    text-decoration: underline !important;
+}
+
+.gs-snippet {
+    font-size: 0.9rem !important;
+    color: #555 !important;
+    padding-left: 70px !important;
+}
+
+/* Center Google Custom Search Results */
+.gsc-results-wrapper-visible {
+    display: block !important;
+    justify-content: center !important;
+    /* Centers horizontally */
+    align-items: center !important;
+    /* Centers vertically */
+    position: fixed !important;
+    top: 50% !important;
+    /* Moves it to the center vertically */
+    left: 50% !important;
+    /* Moves it to the center horizontally */
+    transform: translate(-50%, -50%) !important;
+    /* Perfect centering */
+    width: 80vw !important;
+    /* Ensures it takes an appropriate width */
+    max-width: 950px !important;
+    /* Prevents it from being too wide */
+    height: 80vw !important;
+    max-height: 850px;
+    border-radius: 7px !important;
+    /* Smooth rounded edges */
+    padding: 30px !important;
+    /* Adds spacing around results */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15) !important;
+    /* Enhances visibility */
+}
+
+/* Individual Search Result Styling */
+.gs-result {
+    border-bottom: 1px solid #ddd !important;
+    padding-bottom: 25px !important;
+    font-size: 0.856rem !important;
+}
+
+/* Remove underline under "Web" tab */
+.gsc-tabHeader.gsc-tabhActive {
+    border-bottom: none !important; /* Removes default underline */
+    cursor: default;
+}
+
+/* Ensure text still looks active */
+.gsc-tabHeader.gsc-tabhActive {
+    font-weight: bold !important;
+    color: #2563eb !important; /* Adjust color if needed */
+}
+
+/* Dark Overlay When Google Search Results Are Visible */
+.search-overlay {
+    display: none;
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(235, 255, 255, 1);
+    z-index: 1000;
+    /* Below search results but above the site */
+    transition: opacity 0.2s ease-in-out;
+}
+
+/* Show Overlay When Needed */
+.search-overlay.active {
+    display: block !important;
+    opacity: 1 !important;
+}
+
+/* Hide Overlay When Not Needed */
+.search-overlay.hidden {
+    display: none !important;
+    opacity: 0 !important;
+}
+
+.gsc-completion-container {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+/* ================================
+   Responsive Adjustments (Tablets)
+   ================================ */
+@media (max-width: 1200px) {
+    .symptom-checker-container {
+        max-width: 90%;
+        padding: 15px 20px;
+    }
+
+    .symptom-checker-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .symptom-search-section h2 {
+        font-size: 1.4rem;
+    }
+
+    .gsc-results-wrapper-visible {
+        width: 85vw !important;
+        max-width: 850px !important;
+        height: 100vh !important;
+        max-height: 800px !important;
+    }
+}
+
+
+/* ================================
+   Responsive Adjustments (Mobile)
+   ================================ */
+@media (max-width: 768px) {
+    .symptom-checker-container {
+        padding: 10px 15px;
+    }
+
+    .symptom-checker-header h1 {
+        font-size: 1.7rem;
+    }
+
+    .symptom-search-section h2 {
+        font-size: 1.3rem;
+    }
+
+    .symptom-search-section p {
+        font-size: 0.9rem;
+    }
+
+    .info-link {
+        font-size: 0.95rem;
+    }
+
+    .gsc-results-wrapper-visible {
+        width: 90vw !important;
+        max-width: 650px !important;
+        height: 100vh !important;
+        max-height: 780px !important;
+        padding: 20px !important;
+    }
+}
+
+/* ================================
+   Responsive Adjustments (Small Mobile)
+   ================================ */
+@media (max-width: 480px) {
+    .symptom-checker-container {
+        max-width: 95%;
+        padding: 10px 12px;
+    }
+
+    .symptom-checker-header h1 {
+        font-size: 1.6rem;
+    }
+
+    .symptom-search-section h2 {
+        font-size: 1.2rem;
+    }
+
+    .info-link {
+        font-size: 0.9rem;
+    }
+
+    .gsc-results-wrapper-visible {
+        width: 90vw !important;
+        max-width: 600px !important;
+        height: 100vh !important;
+        max-height: 800px !important;
+        padding: 15px !important;
+    }
+}
+
+/* ================================
+   DARK MODE - SYMPTOMS CHECKER PAGE
+   ================================ */
+.dark-mode .home-icon {
+    background-color: rgba(24, 49, 83, 0.85); /* Dark blue with slight transparency */
+    backdrop-filter: blur(5px); /* Subtle background blur */
+    border: 2px solid transparent;
+}
+
+.dark-mode .search-img {
+    background-color: rgba(24, 49, 83, 0.85); /* Dark blue with slight transparency */
+    backdrop-filter: blur(5px); /* Subtle background blur */
+    border: 2px solid transparent;
+}
+
+.dark-mode .symptom-checker-container {
+    background-color: hsl(220, 20%, 15%);
+    color: hsl(0, 0%, 90%);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    border: 1px solid hsl(220, 20%, 25%);
+}
+
+.dark-mode .symptom-checker-header {
+    background-color: transparent;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.dark-mode .symptom-checker-header h1 {
+    color: hsl(0, 0%, 95%);
+}
+
+/* Dark Mode for Search Section */
+.dark-mode .symptom-search-section {
+    background-color: hsl(220, 20%, 18%);
+    border: .1px solid hsl(220, 20%, 30%);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.dark-mode .symptom-search-section h2 {
+    color: hsl(200, 80%, 70%);
+}
+
+.dark-mode .symptom-search-section p {
+    color: hsl(0, 0%, 85%);
+}
+
+/* Dark Mode for Additional Information */
+.dark-mode .additional-info h3 {
+    color: hsl(0, 0%, 95%);
+}
+
+.dark-mode .info-link {
+    color: hsl(210, 80%, 65%);
+}
+
+.dark-mode .info-link:hover {
+    color: hsl(210, 80%, 50%);
+}
+
+/* Google Search Dark Mode */
+.dark-mode .symptom-search-section .gsc-control-cse {
+    color: hsl(0, 0%, 95%) !important;
+    background: rgba(180, 225, 255, 0.5) !important;
+    border: none;
+}
+
+/* Dark Mode - Google Search Input Field */
+.dark-mode .gsc-input-box {
+    background-color: hsl(220, 20%, 20%) !important;  /* Fully black background */
+    border: 1px solid rgba(180, 225, 255, 0.5) !important; /* Slightly visible border */
+}
+
+.dark-mode .gsc-search-button {
+    background: hsl(221, 85%, 56%) !important; /* Equivalent of #2563eb */
+    border: none !important;
+}
+
+.dark-mode .gsc-search-button:hover {
+    background: hsl(210, 67%, 27%) !important; /* Equivalent of #154572 */
+    transform: none !important;
+}
+
+/* Dark Mode: Input field styling */
+.dark-mode .gsc-input input {
+    background-color: hsl(220, 20%, 20%) !important;
+    color: hsl(0, 0%, 95%) !important;
+    border: none !important;
+}
+
+/* =================================
+   DARK MODE - SYMPTOMS CHECKER RESULTS
+================================= */
+/* Dark Mode for the Search Overlay */
+.dark-mode .search-overlay {
+    background: hsl(220, 20%, 15%, 1) !important;
+}
+
+/* Dark Mode - Search Results Container */
+.dark-mode .gsc-results-wrapper-visible {
+    background-color: hsl(220, 20%, 20%);
+    color: hsl(0, 0%, 95%);
+    border: 1px solid hsl(220, 20%, 30%);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6) !important;
+    padding: 20px !important;
+}
+
+/* Dark Mode - Search Result Titles */
+.dark-mode .gs-title {
+    color: hsl(210, 80%, 62%) !important;
+    font-size: 1rem !important;
+    transition: color 0.3s ease;
+}
+
+.dark-mode .gs-title:hover {
+    text-decoration: underline !important;
+}
+
+/* Dark Mode - Search Result Snippet */
+.dark-mode .gs-snippet {
+    font-size: 0.95rem !important;
+    color: hsl(0, 0%, 85%) !important;
+    padding-left: 70px !important;
+    line-height: 1.6 !important;
+}
+
+/* Dark Mode - URL in Search Results */
+.dark-mode .gs-visibleUrl {
+    color: hsl(120, 100%, 35%) !important;
+    font-size: 0.85rem !important;
+}
+
+/* Dark Mode - Pagination Links */
+.dark-mode .gsc-cursor-box {
+    background-color: hsl(220, 20%, 18%) !important;
+    border-radius: 10px !important;
+    padding: 8px !important;
+}
+
+.dark-mode .gsc-cursor-page {
+    color: hsl(0, 0%, 85%) !important;
+    font-weight: bold !important;
+}
+
+.dark-mode .gsc-cursor-page:hover {
+    color: hsl(0, 0%, 100%) !important;
+    text-decoration: underline !important;
+}
+
+/* Dark Mode - Highlighted Text in Results */
+.dark-mode .gs-title b,
+.dark-mode .gs-snippet b {
+    color: hsl(210, 80%, 75%) !important;
+}
+
+/* Dark Mode - Google Search Button */
+.dark-mode .gsc-search-button {
+    background: hsl(221, 85%, 56%) !important; /* Equivalent of #2563eb */
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 6px !important;
+}
+
+.dark-mode .gsc-search-button:hover {
+    background: hsl(210, 67%, 27%) !important; /* Equivalent of #154572 */
+}
+
+/* Dark Mode - Loading Indicator */
+.dark-mode .gsc-loading {
+    color: hsl(0, 0%, 90%) !important;
+}
+
+/* Dark Mode - No Results Found */
+.dark-mode .gsc-result-info {
+    color: hsl(0, 0%, 90%) !important;
+}
+
+/* Remove only the first bottom line in dark mode */
+.dark-mode .gs-result:first-of-type {
+    border-bottom: none !important; /* Removes top border of first result */
+}
+
+/* Remove first top line in dark mode */
+.dark-mode .gsc-above-wrapper-area-container {
+    border-bottom: none !important;
+}
+
+/* Remove the second white line below */
+.dark-mode .gsc-above-wrapper-area {
+    border: 0.9px solid hsl(220, 20%, 30%) !important;
+    border-left: none !important;
+    border-right: none !important;
+}
+
+/* Improve search snippet readability */
+.dark-mode .gs-snippet {
+    font-size: 0.95rem !important;
+    color: hsl(0, 0%, 85%) !important;
+    line-height: 1.6 !important;
+}
+
+/* Remove any unwanted background colors */
+.dark-mode .gsc-webResult.gsc-result {
+    background-color: transparent !important;
+    border: 0.9px solid hsl(220, 20%, 30%) !important;
+    border-left: none !important;
+    border-right: none !important;  
+}
+
+/* Dark Mode: Style the "About X results" text */
+.dark-mode .gsc-result-info {
+    color: hsl(0, 0%, 85%) !important;
+}
+
+/* Dark Mode: Sort By Dropdown */
+.dark-mode .gsc-selected-option-container {
+    background-color: hsl(220, 20%, 15%) !important;
+    color: hsl(0, 0%, 85%) !important;
+    border: 1px solid hsl(220, 20%, 25%) !important;
+}
+
+/* Dark Mode: Dropdown Items */
+.dark-mode .gsc-option-menu-item {
+    background-color: hsl(220, 20%, 18%) !important;
+    color: hsl(0, 0%, 85%) !important;
+    padding: 2px 16px !important; /* Adjust to fit content */
+    margin: 0 !important;
+    border: none !important;
+}
+
+.dark-mode .gsc-option-menu-item:hover {
+    background-color: hsl(220, 20%, 25%) !important;
+}
+
+/* Dark Mode: Remove extra spaces around the dropdown */
+.dark-mode .gsc-option-menu {
+    background-color: hsl(220, 20%, 18%) !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* Highlight the current active page number in pagination */
+.dark-mode .gsc-cursor-page.gsc-cursor-current-page {
+/* Highlighted background */
+    color: hsl(210, 80%, 50%) !important; /* White text */
+    font-weight: bold !important;
+}
+
+/* Dark Mode Scrollbar - WebKit Browsers (Chrome, Edge, Safari) */
+.dark-mode ::-webkit-scrollbar {
+    width: 10px !important; /* Set width */
+}
+
+/* Scrollbar Track (Background) */
+.dark-mode ::-webkit-scrollbar-track {
+    background: hsl(220, 20%, 15%) !important; /* Dark background */
+}
+
+/* Scrollbar Thumb (Draggable Part) */
+.dark-mode ::-webkit-scrollbar-thumb {
+    background: hsl(220, 20%, 35%) !important; /* Slightly lighter thumb */
+    border: 2px solid hsl(220, 20%, 15%) !important; /* Matches track */
+}
+
+/* Hover Effect on Scrollbar */
+.dark-mode ::-webkit-scrollbar-thumb:hover {
+    background: hsl(220, 20%, 45%) !important; /* Lighter when hovered */
+}
+
+/* Dark Mode for Firefox */
+.dark-mode {
+    scrollbar-color: hsl(220, 20%, 35%) hsl(220, 20%, 1%) !important; 
+    /* Thumb color | Track color */
+}
+
+/* Hide Scrollbar Buttons (Optional) */
+.dark-mode ::-webkit-scrollbar-button {
+    display: none !important;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .dark-mode .gsc-results-wrapper-visible {
+        width: 90vw !important;
+        max-width: 650px !important;
+        padding: 15px !important;
+    }
+}

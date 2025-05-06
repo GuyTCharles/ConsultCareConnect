@@ -1,0 +1,482 @@
+/* ==============================================
+   SCEHDULLING AND CONSULTATION PAGES STYLES
+   ============================================== */
+/* Consultation Section */
+.consultation-section {
+    padding: 25px;
+    background-color: #f4f8fb;
+    /* Light gray-blue */
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border: 2px solid #e0e0e0;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.consultation-title {
+    font-size: 1.9rem;
+    font-weight: bold;
+    color: #000;
+    /* Deep blue */
+    margin-bottom: 5px;
+}
+
+.consultation-subtitle {
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/* Calendar Styles */
+.calendar-container {
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.5rem;
+    color: #1d4e89;
+    /* Deep blue */
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.month-nav {
+    background-color: transparent;
+    border: none;
+    font-size: 1.5rem;
+    color: #1d9bf0;
+    /* Bright blue */
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.month-nav:hover {
+    color: #1d4e89;
+    /* Deep blue on hover */
+}
+
+.weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    font-size: 1rem;
+    color: #6e767d;
+    /* Neutral gray */
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+}
+
+.days .date {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e9f6ff;
+    /* Light blue */
+    border-radius: 8px;
+    height: 40px;
+    color: #1d4e89;
+    /* Deep blue */
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.days .date:hover {
+    background-color: #1d9bf0;
+    /* Bright blue */
+    color: #fff;
+    /* White text */
+}
+
+.days .date.selected {
+    background-color: #1d4e89;
+    /* Deep blue */
+    color: #fff;
+    /* White text */
+}
+
+.days .today {
+    background-color: #ffee58;
+    /* Light yellow background */
+}
+
+/* Dropdown Styles */
+.dropdowns {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    margin: 20px;
+}
+
+.dropdown {
+    flex: 1;
+    text-align: left;
+}
+
+.dropdown label {
+    display: block;
+    font-size: 1rem;
+    color: #4a4a4a;
+    /* Muted dark gray */
+    margin-bottom: 8px;
+}
+
+.dropdown select {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    /* Light gray */
+    color: #333;
+    /* Dark text */
+    transition: border-color 0.3s ease;
+}
+
+.dropdown select:focus {
+    border-color: #1d9bf0;
+    /* Bright blue */
+    outline: none;
+}
+
+/* Parent Container to Center Content */
+.center-container {
+    display: flex;
+    /* Enables flexbox */
+    justify-content: center;
+    /* Centers horizontally */
+    align-items: center;
+    /* Centers vertically */
+}
+
+/* Medical Records Section */
+.medical-records {
+    display: flex;
+    align-items: center;
+    /* Aligns the label and input vertically */
+    gap: 10px;
+    /* Adds spacing between label and input */
+    margin-top: 7px;
+    margin-bottom: 15px;
+}
+
+.medical-records label {
+    font-size: 1rem;
+    color: #4a4a4a;
+    /* Muted dark gray */
+    margin-right: 10px;
+}
+
+.medical-records input[type="file"] {
+    font-size: 0.9rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 8px;
+    background-color: #f9f9f9;
+    /* Light gray */
+    color: #333;
+    /* Dark text */
+}
+
+/* Submit Button */
+.primary-button.submit-button {
+    background-color: #1d9bf0;
+    /* Bright blue */
+    color: #fff;
+    padding: 12px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 12px;
+}
+
+.primary-button.submit-button:hover {
+    background-color: #1d4e89;
+    /* Deep blue */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* ==========================================================
+   CONSULTATION PAGE STYLES
+========================================================== */
+/* Video Placeholder Style*/
+.video-placeholder {
+    width: 100%;
+    max-width: 800px;
+    height: 500px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ddd;
+    margin-bottom: 20px auto;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+/* Button Group */
+.button-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.button {
+    padding: 15px 25px;
+    font-size: 1rem;
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.button:hover {
+    transform: scale(1.05);
+}
+
+.join-button {
+    background-color: #1d9bf0;
+    padding: 12px 18px;
+}
+
+.join-button:hover {
+    background-color: #1d4e89;
+}
+
+.end-button {
+    background-color: #e53935;
+    padding: 12px 18px;
+}
+
+.end-button:hover {
+    background-color: #b71c1c;
+}
+
+/* ================================
+   DARK MODE - SCHEDULING PAGE
+   ================================ */
+/* Dark mode background */
+.dark-mode .consultation-section {
+    background-color: hsl(220, 20%, 15%);
+    color: hsl(0, 0%, 90%);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    border: 1px solid hsl(220, 20%, 25%);
+}
+
+/* Dark mode title and subtitle */
+.dark-mode .consultation-title,
+.dark-mode .consultation-subtitle {
+    color: hsl(0, 0%, 95%);
+}
+
+.dark-mode .home-icon {
+    background-color: rgba(24, 49, 83, 0.85); /* Dark blue with slight transparency */
+    backdrop-filter: blur(5px); /* Subtle background blur */
+    border: 2px solid transparent;
+}
+
+.dark-mode .search-img {
+    background-color: rgba(24, 49, 83, 0.85); /* Dark blue with slight transparency */
+    backdrop-filter: blur(5px); /* Subtle background blur */
+    border: 2px solid transparent;
+}
+
+/* Dark mode calendar container */
+.dark-mode .calendar-container {
+    background-color: hsl(220, 30%, 12%);
+    border: 1px solid hsl(220, 30%, 20%);
+}
+
+/* Dark mode calendar header */
+.dark-mode .calendar-header {
+    background-color: none;
+    color: hsl(0, 0%, 95%);
+}
+
+.dark-mode .month-nav {
+    background-color: transparent;
+}
+
+.dark-mode .month-nav:hover {
+    color: hsl(220, 50%, 55%);
+}
+
+/* Dark mode weekdays */
+.dark-mode .weekdays div {
+    color: hsl(0, 0%, 85%);
+}
+
+.dark-mode .days div:hover {
+    background-color: hsl(220, 40%, 30%);
+    transform: scale(1.05);
+}
+
+/* Dark mode selected date */
+.dark-mode .days .date.selected {
+    background-color: hsl(220, 50%, 45%);
+    color: hsl(0, 0%, 100%);
+}
+
+.dark-mode .days .date.selected:hover {
+    background-color: hsl(220, 50%, 60%);
+    color: hsl(0, 0%, 100%);
+}
+
+.dark-mode .days .date {
+    background-color: hsl(204, 100%, 96%);
+}
+
+/* Dark mode today’s date highlight */
+.dark-mode .days .today {
+    background-color: hsl(50, 95%, 60%);
+    color: hsl(220, 20%, 15%);
+}
+
+/* Dark mode dropdowns */
+.dark-mode .dropdowns select {
+    background-color: hsl(220, 20%, 25%);
+    color: hsl(0, 0%, 100%);
+    border: 1px solid hsl(220, 20%, 30%);
+    transition: border-color 0.3s ease;
+}
+
+.dark-mode .dropdowns select:hover {
+    border-color: hsl(220, 50%, 45%);
+}
+
+/* Dark mode dropdown labels */
+.dark-mode .dropdowns label {
+    color: hsl(0, 0%, 90%);
+}
+
+/* Dark mode file upload */
+.dark-mode .medical-records input[type="file"] {
+    background-color: hsl(220, 20%, 25%);
+    color: hsl(0, 0%, 90%);
+    border: 1px solid hsl(220, 20%, 30%);
+}
+
+.dark-mode .medical-records label {
+    color: #999;
+}
+
+/* Dark mode button */
+.dark-mode .submit-button {
+    background-color: hsl(204, 87%, 55%); /* #1d9bf0 */
+    color: hsl(0, 0%, 100%);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode .submit-button:hover {
+    background-color: hsl(211, 67%, 33%); /* #1d4e89 */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Dark mode video placeholder */
+.dark-mode .video-placeholder {
+    background-color: hsl(220, 20%, 18%);
+    color: hsl(0, 0%, 95%);
+}
+
+/* Dark mode consultation buttons */
+.dark-mode .join-button {
+    background-color: hsl(204, 87%, 55%); /* #1d9bf0 */
+}
+
+.dark-mode .join-button:hover {
+    background-color: hsl(211, 67%, 33%); /* #1d4e89 */
+}
+
+.dark-mode .end-button {
+    background-color: hsl(4, 78%, 58%); /* #e53935 */
+}
+
+.dark-mode .end-button:hover {
+    background-color: hsl(0, 74%, 41%); /* #b71c1c */
+}
+
+/* Ensure modals retain their original styles */
+.modal-container,
+.modal-content,
+.modal-header,
+.modal-body,
+.modal-footer {
+    background-color: #fff !important;
+    /* Keep white background */
+    color: #000 !important;
+    /* Keep dark text */
+}
+
+/* Preserve Initial Styles in Both Light & Dark Mode */
+.downloadAppointment-button {
+    background-color: #1d9bf0 !important;
+    /* Bright blue */
+    color: #fff !important;
+    border: none !important;
+}
+
+.downloadAppointment-button:hover {
+    background-color: #1d4e89 !important;
+    /* Deep blue */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Join Consultation Button */
+.joinConsultation-button {
+    background-color: #1d9bf0 !important;
+    /* Bright blue */
+    color: #fff !important;
+    border: none !important;
+}
+
+.joinConsultation-button:hover {
+    background-color: #1d4e89 !important;
+    /* Deep blue */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Reschedule Button */
+.reschedule-button {
+    background-color: #e53935 !important;
+    /* Light red */
+    color: #fff !important;
+    border: none !important;
+}
+
+.reschedule-button:hover {
+    background-color: #cc0000 !important;
+    /* Dark red */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Ensure Close Button Color Doesn't Change in Dark Mode */
+.dark-mode .modal-close {
+    background-color: transparent !important;
+    color: #333 !important;
+    /* Keep the original dark color */
+}

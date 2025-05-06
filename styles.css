@@ -1,0 +1,699 @@
+/* =====================
+   GLOBAL STYLES 
+   ===================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f0f4f8;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header */
+header {
+    background-color: #1d4e89;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* General Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+/* Home Icon - Default Style */
+.home-icon {
+    font-size: 2rem;
+    /* Icon size */
+    color: #ffffff;
+    text-decoration: none;
+    width: 43px;
+    /* Ensure width */
+    height: 43px;
+    /* Equal height to make it round */
+    border-radius: 50%;
+    /* Makes it circular */
+    border: 2px solid #1d4e89;
+    /* Border color */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    /* Subtle shadow */
+    display: flex;
+    /* Align icon within container */
+    align-items: center;
+    /* Center icon vertically */
+    justify-content: center;
+    /* Center icon horizontally */
+    background-color: #1d4e89;
+    /* Background color */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    /* Smooth transition */
+}
+
+/* Logo Styling */
+.logo-container {
+    display: flex;
+    align-items: center;
+    /* Ensures logo image and text align properly */
+    text-decoration: none;
+    /* Ensures no underline on the logo */
+    color: #fff;
+    font-weight: 600;
+}
+
+/* Logo Image */
+.logo-img-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-img {
+    width: 55px;
+    /* Adjusted size for the logo image */
+    height: 55px;
+    margin-right: 15px;
+    /* Space between logo image and text */
+    border-radius: 22%;
+    /* Optional: makes the image rounded */
+    background-color: #FFF;
+    /* Optional: adds white background behind logo image */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    /* Subtle shadow */
+}
+
+/* Logo Text */
+.logo-text-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo-text {
+    font-size: 2rem;
+    color: #fff;
+    /* White color for text */
+}
+
+/* Right Section for Search Icon and User Avatar */
+.right-section {
+    display: flex;
+    align-items: center;
+}
+
+/* User Avatar */
+.user-profile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.profile-img {
+    width: 43px;
+    height: 43px;
+    border-radius: 50%;
+    margin-left: 20px;
+    border: 2px solid #1d4e89;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    /* Add subtle shadow */
+}
+
+/* Banner Section */
+.banner {
+    width: 100%;
+    height: 400px;
+    /* Adjust the height as needed to focus on the upper portion */
+    background-image: url('images/banner.jpg');
+    /* Replace with the correct path */
+    background-position: top center;
+    /* Focus on the top part of the image */
+    background-size: cover;
+    /* Ensure the image covers the area while  maintaining aspect ratio */
+    background-repeat: no-repeat;
+    overflow: hidden;
+    /* Hide any content outside the banner area */
+}
+
+/* Search Icon */
+.search-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.search-img {
+    width: 43px;
+    height: 43px;
+    margin-left: 20px;
+    /* Adds space between the search and avatar */
+    border-radius: 50%;
+    object-fit: contain;
+    border: 2px solid #1d4e89;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    /* Add subtle shadow */
+}
+
+/* Main Section */
+main {
+    padding: 40px;
+    flex-grow: 1;
+}
+
+.home-section {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.home-section h2 {
+    font-size: 2.2rem;
+    font-weight: 600;
+    margin-top: -12px;
+}
+
+.home-section h3 {
+    font-size: 1.4rem;
+    /* Slightly smaller than h2 */
+    font-weight: 400;
+    /* Lighter weight for secondary text */
+    color: #666;
+    /* Muted color for contrast */
+    margin-top: 6px;
+    /* Add spacing below h2 */
+    margin-bottom: 35px;
+    /* Space before feature cards */
+}
+
+/* Feature Cards Section */
+.feature-cards {
+    display: flex;
+    justify-content: space-around;
+}
+
+.card {
+    background-color: #fff;
+    padding: 30px;
+    margin-bottom: 50px;
+    width: 280px;
+    height: 300px;
+    /* Adjust the height based on your design */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    background-size: cover;
+    /* Ensures the image covers the entire card */
+    background-position: center;
+    /* Ensures the image is centered */
+    transition: transform 0.3s ease;
+    overflow: hidden;
+    /* Hide any overflow outside the card */
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    /* Slight hover effect */
+}
+
+/* Card Titles */
+.card h3 {
+    font-size: 1.4rem;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 500;
+    color: #fff;
+    position: absolute;
+    top: 20px;
+    left: 10px;
+    right: 10px;
+    z-index: 1;
+    /* Ensure text appears above the image */
+}
+
+/* Card Buttons */
+.card button {
+    background-color: #1d9bf0;
+    color: #fff;
+    padding: 13px 0;
+    /* Match padding with modal buttons */
+    border: none;
+    border-radius: 10px;
+    /* Rounded corners to match modal buttons */
+    cursor: pointer;
+    font-size: 1rem;
+    /* Adjust font size to match modal buttons */
+    width: 70%;
+    /* Ensure button width is visually consistent */
+    position: absolute;
+    bottom: 22px;
+    /* Keep button at the bottom of the card */
+    left: 50%;
+    /* Horizontally center the button */
+    transform: translateX(-50%);
+    /* Adjust the button position to center it */
+    z-index: 1;
+    text-align: center;
+    /* Ensure text is centered */
+}
+
+/* Button Hover Effect */
+.card button:hover {
+    background-color: #1d4e89;
+    /* Match modal button hover color */
+}
+
+/* Background Images for Each Card */
+#card-1 {
+    background-image: url('images/doctor-avatar1.jpg');
+    /* Image path for card 1 */
+}
+
+#card-2 {
+    background-image: url('images/medical-records2.jpg');
+    /* Image path for card 2 */
+}
+
+#card-3 {
+    background-image: url('images/healthcare-online-clinic.jpg');
+    /* Image path for card 3 */
+}
+
+/* Overlay for better text contrast */
+.card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.45);
+    /* Overlay with transparency */
+    z-index: 0;
+    /* Place overlay behind the text */
+}
+
+/* Action Buttons Section */
+.action-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 25px;
+    padding: 0 30%;
+}
+
+/* Round Buttons */
+.round-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: #1d4e89;
+    color: #fff;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    font-size: 1.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Call Button Specific Styles */
+.call-button {
+    background-color: #28a745;
+    /* Green */
+}
+
+.call-button:hover {
+    background-color: #1e7d32;
+}
+
+/* Animation for username display */
+@keyframes zoomBounce {
+    0% {
+        transform: scale(0.8);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.animated-username {
+    font-size: 2rem;
+    color: #1d4e89;
+    /* Match the site's primary color */
+    text-align: center;
+    margin-top: -12px;
+    margin-bottom: 12px;
+    display: block;
+    /* Keep it visible */
+    opacity: 1;
+    /* Ensure it's fully visible */
+}
+
+.zoom-bounce-animation {
+    animation: zoomBounce 1.5s ease-in-out;
+}
+
+
+/* Help Center Form Styles */
+.help-center-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    /* Space between fields */
+    width: 100%;
+    /* Full width */
+    max-width: 400px;
+    /* Optional: Limit form width */
+    margin: 0 auto;
+    /* Center the form */
+}
+
+.help-center-form textarea {
+    padding: 30px 15px;
+    font-size: 1rem;
+    border: 1px solid #333639;
+    border-radius: 5px;
+    background: #fff;
+    outline: none;
+    width: 100%;
+    height: 200px;
+    /* Fixed height for the text area */
+    resize: none;
+    /* Disable resizing */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.help-center-form textarea:focus {
+    border-color: #1d9bf0;
+    box-shadow: 0 4px 10px rgba(29, 155, 240, 0.4);
+}
+
+.help-center-form textarea:focus + label,
+.help-center-form textarea:not(:placeholder-shown) + label {
+    top: 5px;
+    left: 16px;
+    font-size: 0.85rem;
+    color: #1d9bf0;
+}
+
+.help-center-form label {
+    position: absolute;
+    top: 20px;
+    left: 16px;
+    color: #6e767d;
+    font-size: 1rem;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #1d4e89;
+    padding: 32px 0;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 20px;
+    /* Add spacing between footer sections */
+}
+
+/* Footer Content */
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    /* Add spacing between links and social icons */
+}
+
+/* Footer Links Section */
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    /* Space between links */
+    text-align: center;
+}
+
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #E0FFFF;
+    /* Subtle hover effect */
+}
+
+/* Footer Social Media Icons Section */
+ul {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    /* Ensures icons wrap on smaller screens */
+    justify-content: center;
+}
+
+.item a {
+    text-decoration: none;
+    width: 3.1rem;
+    height: 3.15rem;
+    background-color: #f0f9fe;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    position: relative;
+    z-index: 1;
+    border: 1px solid #f0f9fe;
+    overflow: hidden;
+}
+
+.item a::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-color);
+    z-index: 0;
+    scale: 1 0;
+    transform-origin: bottom;
+    transition: scale 0.5s ease;
+}
+
+.item:hover a::before {
+    scale: 1 1;
+}
+
+.icon {
+    font-size: 2rem;
+    color: hsl(203, 92%, 8%);
+    transition: 0.5s ease;
+    z-index: 2;
+    justify-content: center;
+    align-content: center;
+
+}
+
+.item a:hover .icon {
+    color: #fff;
+    transform: rotateY(360deg);
+}
+
+
+/* Facebook Gradient */
+.item:nth-child(1) {
+    --bg-color: #1877f2;
+    /* Facebook's primary blue color */
+}
+
+/* Instagram Gradient */
+.item:nth-child(2) {
+    --bg-color: linear-gradient(to bottom right, #f9ce34, #ee2a7b, #6228d7);
+}
+
+/* LinkedIn Gradient */
+.item:nth-child(3) {
+    --bg-color: #0077b5;
+}
+
+/* X Gradient */
+.item:nth-child(4) {
+    --bg-color: #000000;
+}
+
+/* ================================
+   LIGHT & DARK MODE TOGGLE STYLES
+   ================================ */
+.toggle-switch {
+    position: relative;
+    width: 90px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+/* Background of the slider */
+.slider {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin-left: 20px;
+    background-color: rgba(24, 49, 83, 0.85); /* Dark blue with slight transparency */
+    border-radius: 25px;
+    transition: 0.3s;
+    backdrop-filter: blur(5px); /* Subtle background blur */
+}
+
+/* Hide default checkbox */
+.checkbox {
+    display: none;
+}
+
+/* Light Mode (Unchecked) */
+.slider:has(.checkbox:not(:checked)) {
+    background-color: rgba(105, 176, 231, 0.6); /* Light blue with transparency */
+    backdrop-filter: blur(6px); /* Slightly stronger blur effect */
+}
+
+/* === SUN (☀️) & MOON (🌙) ICON STYLING === */
+.toggle-switch .icon {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    width: 30px; /* Slightly larger */
+    height: 30px;
+    border-radius: 50%;
+    background-color: #ffd43b; /* Soft yellow sun */
+    box-shadow: 0 0 8px rgba(255, 236, 153, 0.5); /* Light blurred glow */
+    transition: 0.4s ease;
+}
+
+/* Dark Mode (Checked) - Transforms into Moon 🌙 */
+.checkbox:checked + .icon {
+    transform: translateX(48px);
+    background-color: rgba(24, 49, 83, 0.85); /* Dark mode moon */
+    box-shadow: inset -12px -2px 0 0 rgba(216, 219, 224, 0.8); /* Soft crescent moon effect */
+    clip-path: circle(80% at 75% 30%); /* Adjusted for a more distinct croissant shape */
+}
+
+/* ================================
+   DARK MODE STYLES
+   ================================ */
+.dark-mode .home-section > h3 {
+    color: #999;
+}
+
+body.dark-mode {
+    background-color: hsl(220, 20%, 15%);
+    color: hsl(0, 0%, 90%);
+}
+
+.dark-mode .profile-img {
+    background-color: rgba(24, 49, 83, 0.85); /* Dark blue with slight transparency */
+    backdrop-filter: blur(5px); /* Subtle background blur */
+    border: 2px solid transparent;
+}
+
+.dark-mode .search-img {
+    background-color: rgba(24, 49, 83, 0.85); /* Dark blue with slight transparency */
+    backdrop-filter: blur(5px); /* Subtle background blur */
+    border: 2px solid transparent;
+}
+
+/* Dark Navbar */
+.dark-mode header {
+    background-color: hsl(220, 30%, 10%);
+}
+
+.dark-mode .navbar {
+    background-color: hsl(220, 30%, 10%);
+}
+
+.dark-mode footer {
+    background-color: hsl(220, 30%, 10%);
+}
+
+/* Dark Mode Cards */
+.dark-mode .card {
+    background-color: hsl(220, 20%, 25%);
+    color: hsl(0, 0%, 95%);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+}
+
+.dark-mode #card-3 {
+    background-color: #ffffff;
+}
+
+/* ================================
+   DARK MODE - BUTTON FIX
+   ================================ */
+/* Ensure Call Button retains green color */
+.dark-mode .call-button {
+    background-color: hsl(134, 61%, 41%) !important; /* Original Green */
+}
+
+.dark-mode .call-button:hover {
+    background-color: hsl(134, 61%, 35%) !important; /* Darker Green on Hover */
+}
+
+/* Ensure Join Button retains original color */
+.dark-mode .join-button {
+    background-color: hsl(204, 92%, 49%) !important; /* Original Blue */
+}
+
+.dark-mode .join-button:hover {
+    background-color: hsl(220, 52%, 32%) !important; /* Deep Blue */
+}
+
+/* Ensure End Button retains red color */
+.dark-mode .end-button {
+    background-color: hsl(0, 72%, 55%) !important; /* Original Red */
+}
+
+.dark-mode .end-button:hover {
+    background-color: hsl(0, 72%, 40%) !important; /* Darker Red */
+}
+
+/* Ensure the Book Appointment Button retains its color */
+.dark-mode .primary-button,
+.dark-mode .submit-button {
+    background-color: hsl(204, 92%, 49%) !important; /* Original Blue */
+}
+
+.dark-mode .primary-button:hover,
+.dark-mode .submit-button:hover {
+    background-color: hsl(220, 52%, 32%) !important; /* Deep Blue */
+}
+
+

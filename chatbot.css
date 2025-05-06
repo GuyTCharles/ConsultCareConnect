@@ -1,0 +1,402 @@
+/* ===================
+   CHATBOT STYLES
+====================== */
+.chat-button {
+    background: #2563eb;
+    color: #ffffff;
+    border: none;
+    padding: 12px;
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+.chat-button:hover {
+    background: #154572;
+}
+
+/* Chatbot Window */
+#chatContainer {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    width: 385px;
+    height: 415px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    display: none;
+    flex-direction: column;
+    z-index: 999;
+    overflow: hidden;
+}
+
+/* Chat Header */
+.chat-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #1d4e89;
+    color: #ffffff;
+    padding: 12px;
+    font-weight: bold;
+}
+
+/* Chat Messages Box */
+#chatBox {
+    height: auto;
+    overflow-y: auto;
+    padding: 15px;
+    font-size: 0.9rem;
+}
+
+/* Chat Input Area */
+.chat-input-container {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background: #E8E8E8;
+}
+
+#userInput {
+    flex-grow: 1;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    font-size: 15px;
+}
+
+/* Replacing "Send" button with an icon */
+.send-icon {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    margin-left: 8px;
+    color: #0b6da8;
+    transition: color 0.3s ease;
+}
+
+.send-icon:hover {
+    color: #154572;
+}
+
+/* Chat Message Styling */
+.chat-message {
+    padding: 8px;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    max-width: 100%;
+}
+
+/* User Messages */
+.chat-message.user {
+    background-color: #e6f3ff;
+    color: #000;
+    text-align: left;
+    align-self: flex-end;
+}
+
+/* Bot Responses */
+.chat-message.bot {
+    background-color: #e9fbe5;
+    color: #000;
+    text-align: left;
+    align-self: flex-start;
+    padding: 10px;
+}
+
+/* Quick Reply Buttons */
+.quick-reply {
+    display: inline-block;
+    padding: 10px 15px;
+    margin: 5px;
+    border-radius: 20px;
+    border: 1px solid #1d4e89;
+    color: #1d4e89;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+.quick-reply:hover {
+    background: #1d4e89;
+    color: #ffffff;
+}
+
+/* Chatbot Close Button */
+#closeChat {
+    position: absolute;
+    right: 12px;
+    /* Adjust spacing from the right */
+    font-size: 22px;
+    /* Make the X larger */
+    font-weight: bold;
+    /* Ensure it's bold for visibility */
+    background: none;
+    border: none;
+    color: #ffffff;
+    /* Slightly dark color for contrast */
+    cursor: pointer;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+/* Hover Effect */
+/*
+#closeChat:hover {
+    transform: scale(1.2);
+    color: #d9534f;
+}*/
+
+/* ==========================================================
+   CHATBOT LINKS STYLING
+========================================================== */
+/* Default chat link styling */
+.chat-link {
+    color: #1d4e89;
+    /* ConsultCareConnect primary color */
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    margin: 5px 0;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+/* Hover effect */
+.chat-link:hover {
+    color: #154572;
+    /* Slightly darker blue on hover */
+    text-decoration: underline;
+}
+
+/* Click effect (optional: adds a slight opacity effect when clicked) */
+.chat-link:active {
+    opacity: 0.7;
+}
+
+/* ==========================================================
+   📱 RESPONSIVE MEDIA QUERIES FOR CHATBOT
+========================================================== */
+/* Large screens (769px - 1024px) */
+@media (max-width: 1024px) {
+    #chatContainer {
+        width: 340px;
+        height: 380px;
+        bottom: 15px;
+        right: 15px;
+    }
+
+    #chatBox {
+        height: 350px;
+    }
+}
+
+/* Tablets (481px - 768px) */
+@media (max-width: 768px) {
+    .chat-input-container {
+        padding: 10px;
+    }
+
+    #userInput {
+        font-size: 15px;
+    }
+
+    .send-icon {
+        font-size: 20px;
+    }
+
+    .chat-button,
+    .call-button {
+        width: 60px;
+        height: 60px;
+        font-size: 18px;
+        padding: 12px;
+    }
+}
+
+
+
+@media (max-width: 600px) {
+    #chatContainer {
+        bottom: -175px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+}
+
+/* Mobile devices (≤ 480px) */
+@media (max-width: 480px) {
+    #chatContainer {
+        bottom: -177px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    #chatBox {
+        height: 50vh;
+    }
+
+    .chat-input-container {
+        padding: 8px;
+    }
+
+    #userInput {
+        font-size: 14px;
+    }
+
+    .send-icon {
+        font-size: 18px;
+    }
+
+    .chat-button,
+    .call-button {
+        width: 55px;
+        height: 57px;
+        font-size: 18px;
+        padding: 12px;
+    }
+}
+
+@media (max-width: 320px) and (max-height: 480px) {
+    #chatContainer {
+        width: 90%;
+        height: 75vh;
+        /* Shorter height for smaller screen */
+        top: 59%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    #chatBox {
+        height: 85vh;
+        font-size: 12px;
+        /* Reduce font size */
+    }
+
+    .chat-header {
+        padding: 8px;
+        font-size: 15px;
+        /* Reduce font size for header */
+    }
+
+    .chat-message {
+        font-size: 14px;
+    }
+
+    .chat-input-container {
+        padding: 8px;
+    }
+
+    #userInput {
+        font-size: 14px;
+    }
+
+    .send-icon {
+        font-size: 17px;
+    }
+
+    .chat-button,
+    .call-button {
+        width: 50px;
+        height: 50px;
+        font-size: 16px;
+        padding: 10px;
+    }
+
+}
+
+/* Specific Style for 480x320 px Screens */
+@media (max-width: 768px) and (max-height: 320px) {
+    #chatContainer {
+        width: 80%;
+        height: 85vh;
+        /* Shorter height for smaller screen */
+        top: 54%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    #chatBox {
+        height: 85vh;
+        font-size: 12px;
+        /* Reduce font size */
+    }
+
+    .chat-header {
+        padding: 8px;
+        font-size: 15px;
+        /* Reduce font size for header */
+    }
+
+    .chat-message {
+        font-size: 14px;
+    }
+
+    .chat-input-container {
+        padding: 8px;
+    }
+
+    #userInput {
+        font-size: 14px;
+    }
+
+    .send-icon {
+        font-size: 17px;
+    }
+
+    .chat-button,
+    .call-button {
+        width: 50px;
+        height: 50px;
+        font-size: 16px;
+        padding: 10px;
+    }
+}
+
+/* DARK MODE CHAT */
+.dark-mode #chatContainer {
+    background-color: hsl(220, 20%, 15%);
+    color: hsl(0, 0%, 90%);
+    border: 1px solid hsl(220, 20%, 30%);
+}
+
+.dark-mode .chat-header {
+    background-color: hsl(220, 30%, 10%);
+    color: hsl(0, 0%, 95%);
+}
+
+.dark-mode .chat-message.bot {
+    background-color: hsl(220, 20%, 25%);
+    color: hsl(0, 0%, 100%);
+}
+
+.dark-mode .chat-message.user {
+    background-color: hsl(220, 40%, 20%);
+    color: hsl(0, 0%, 100%);
+}
+
+.dark-mode .chat-input-container {
+    background-color: hsl(220, 30%, 18%);
+    border-top: 1px solid hsl(220, 30%, 25%);
+}
+
+/* Chat Links in Dark Mode */
+.dark-mode .chat-message a {
+    color: hsl(220, 90%, 75%); /* Lighter blue for better readability */
+}
+
+.dark-mode .chat-message a:hover {
+    color: hsl(220, 90%, 85%); /* Slightly brighter on hover */
+}
+
+/* Send Icon in Dark Mode */
+.dark-mode .send-icon {
+    background: none;
+}
+
+.dark-mode .send-icon:hover {
+    color: hsl(220, 80%, 70%); /* Lighter blue for better contrast */
+}

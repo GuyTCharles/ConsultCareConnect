@@ -1,0 +1,1709 @@
+/* ================================
+   LOGIN MODAL STYLING
+   ================================ */
+/* Hide login fields, buttons, and sign-up option when logged in */
+#loginModal.logged-in #loginInput,
+#loginModal.logged-in #passwordInput,
+#loginModal.logged-in .password-wrapper,
+#loginModal.logged-in #loginButton,
+#loginModal.logged-in .secondary-button,
+#loginModal.logged-in .sign-up {
+    display: none !important;
+}
+
+/* Show only logout button and social login options when logged in */
+#loginModal.logged-in #logoutButton {
+    display: block !important;
+}
+
+/* Ensure elements are visible when the user is NOT logged in */
+#loginInput,
+#passwordInput,
+.password-wrapper,
+#loginButton,
+.secondary-button,
+.sign-up {
+    display: block;
+}
+
+#logoutButton {
+    display: none;
+}
+
+/* Modal Overlay */
+.modal-overlay.login-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(235, 255, 255, 1);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Modal Container */
+.modal-container.login-modal {
+    max-width: 500px;
+    width: 90%;
+    height: auto;
+    background-color: #1d4e89;
+    /* Use the new blue shade */
+    border-radius: 16px;
+    padding: 24px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    position: relative;
+    color: #e7e9ea;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Modal Close Button */
+.modal-close.login-modal {
+    position: absolute;
+    top: 6px;
+    right: 10px;
+    font-size: 24px;
+    background: none;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+/* Modal Title */
+.modal-title.login-modal {
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Social Login Buttons */
+
+.social-login {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.social-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 7px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #0f1419;
+    background-color: #fff;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.social-button:hover {
+    background-color: #e6e6e6;
+}
+
+.social-icon {
+    width: 32px;
+    height: 35px;
+}
+
+/* Divider */
+.divider {
+    position: relative;
+    text-align: center;
+    margin: 12px auto;
+    /* Added more margin for better spacing */
+    color: #6e767d;
+    max-width: 400px;
+    /* Match the max-width of modal buttons */
+    width: 100%;
+    /* Allow it to shrink if necessary */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* "or" Text */
+.divider p {
+    display: inline-block;
+    background: #1d4e89;
+    /* Match modal background */
+    padding: 0 12px;
+    position: relative;
+    z-index: 1;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+/* Divider Lines */
+.divider::before,
+.divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background-color: #333639;
+    margin: 0 12px;
+    /* Space around the "or" text */
+}
+
+.divider:before {
+    left: 0;
+}
+
+.divider:after {
+    right: 0;
+}
+
+/* Login Form */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    /* Add more space between inputs */
+    width: 100%;
+    /* Ensure the form takes full width */
+    max-width: 400px;
+    /* Optional: Limit max width for consistency */
+    margin: 0 auto;
+    /* Center the form */
+}
+
+/* Centering Form in Modal */
+.login-form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 20px;
+}
+
+/* Input Container */
+.input-container {
+    position: relative;
+    width: 100%;
+    /* Ensure input container takes full width */
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    /* Match form width */
+}
+
+/* Input Field */
+.input-container input {
+    padding: 25px 15px 10px 15px;
+    /* Adjust top padding for space below the label */
+    font-size: 1rem;
+    /* Keep font size consistent */
+    border: 1px solid #333639;
+    /* Border for visibility */
+    border-radius: 5px;
+    /* Rounded corners */
+    background: #fff;
+    /* White background */
+    outline: none;
+    /* Remove default focus outline */
+    width: 100%;
+    /* Full width input */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow for depth */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    padding-right: 50px;
+    /* Ensure space for the eye icon */
+}
+
+/* Placeholder Effect on Focus */
+.input-container input:focus {
+    border-color: #1d9bf0;
+    /* Highlighted border color */
+    box-shadow: 0 4px 10px rgba(29, 155, 240, 0.4);
+    /* Add shadow */
+}
+
+.input-container input:focus + label {
+    color: #1d9bf0;
+    /* Change label color on focus */
+}
+
+/* Floating Label */
+.input-container label {
+    position: absolute;
+    top: 18px;
+    left: 16px;
+    color: #6e767d;
+    /* Placeholder text color */
+    font-size: 1rem;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    /* Smooth transition for label */
+}
+
+/* Label on Focus or Input */
+.input-container input:not(:placeholder-shown) + label,
+.input-container input:focus + label {
+    top: 5px;
+    /* Move label above input */
+    left: 16px;
+    /* Slightly adjust position */
+    font-size: 0.85rem;
+    /* Smaller font size for label */
+    color: #1d9bf0;
+    /* Highlighted color */
+}
+
+/* Wrapper to align the input and eye icon */
+.password-wrapper {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+/* Ensure input field takes full width */
+.password-wrapper input {
+    flex: 1;
+    padding-right: 45px;
+    /* Space for the eye icon */
+}
+
+/* Properly align the eye icon */
+.password-wrapper .toggle-password {
+    position: absolute;
+    right: 15px;
+    cursor: pointer;
+    color: #6e767d;
+    font-size: 1.1rem;
+}
+
+.password-wrapper .toggle-password:hover {
+    color: #1d9bf0;
+    /* Highlight on hover */
+}
+
+/* Adjustments for the input container */
+.input-container {
+    position: relative;
+    width: 100%;
+}
+
+.input-container input {
+    padding-right: 57px;
+    /* Add space for the eye icon */
+}
+
+/* Primary Button */
+.primary-button {
+    background-color: #3399ff;
+    color: #fff;
+    border-radius: 30px;
+    /* Rounded corners */
+    padding: 14px 0;
+    /* Increased padding for larger buttons */
+    font-size: 0.9rem;
+    /* Adjust font size */
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    /* Ensure button is full-width */
+    max-width: 400px;
+    /* Optional: Limit max width */
+    margin: 0 auto;
+    /* Center the button */
+    margin-top: 15px;
+    /* Center the button */
+}
+
+.primary-button:hover {
+    background-color: #4db8ff;
+}
+
+/* Secondary Button */
+.secondary-button {
+    background-color: transparent;
+    color: #e7e9ea;
+    /* Lighter text color for better visibility */
+    border-radius: 30px;
+    /* Rounded corners */
+    border: 1px solid #e7e9ea;
+    /* Ensure border matches the text color */
+    text-align: center;
+    font-size: 0.9rem;
+    cursor: pointer;
+    padding: 14px 0;
+    /* Adjust padding */
+    width: 100%;
+    /* Ensure button is full-width */
+    max-width: 400px;
+    /* Optional: Limit max width */
+    margin: 0 auto;
+    /* Center the button */
+}
+
+.secondary-button:hover {
+    background-color: #e6e6e6;
+    /* Soft white background for contrast */
+    color: #1d4e89;
+    /* Retain blue text */
+    border-color: #1d4e89;
+    /* Match border to text */
+}
+
+#logoutButton {
+    margin-top: -50px;
+    margin-bottom: 8px;
+}
+
+/* Signup Section */
+.sign-up {
+    font-size: 0.9rem;
+    text-align: center;
+    margin-top: 25px;
+}
+
+.sign-up a {
+    color: #1d9bf0;
+    text-decoration: none;
+}
+
+.sign-up a:hover {
+    text-decoration: underline;
+}
+
+/* Error message styling */
+.error-message {
+    margin-top: 7px;
+    font-size: 0.95rem;
+    color: #FF7F7F;
+    /* Vibrant red with a hint of orange */
+    display: none;
+    /* Hidden by default */
+    text-align: left;
+}
+
+/* Error state for input */
+.input-container input.error {
+    border-color: #ff0000;
+    /* Vibrant red border */
+    box-shadow: 0 2px 5px rgba(255, 77, 79, 0.4);
+    /* Brighter red shadow */
+}
+
+/* Input field with a blue border when typing or valid */
+.input-container input:focus {
+    border-color: #1d9bf0;
+    /* Blue border color on focus */
+    box-shadow: 0 4px 10px rgba(29, 155, 240, 0.4);
+    /* Subtle blue shadow */
+}
+
+/* DARK MODE - LOGIN MODAL */
+.dark-mode .modal-overlay.login-modal {
+    background: hsla(220, 20%, 15%, 1);
+    /* Dark background with transparency */
+}
+
+.dark-mode .modal-container.login-modal {
+    background-color: hsl(220, 20%, 20%);
+    color: hsl(0, 0%, 95%);
+    border: 1px solid hsl(220, 20%, 30%);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.dark-mode .modal-container .divider {
+    color: #777;
+}
+
+.dark-mode .modal-container .divider p {
+    display: inline-block;
+    background: hsl(220, 20%, 20%);
+}
+
+.dark-mode .modal-container .divider::before,
+.dark-mode .modal-container .divider::after {
+    background-color: hsl(220, 20%, 28%);
+}
+
+/* Login Form Input Fields */
+.dark-mode .input-container input {
+    background: hsl(220, 20%, 25%);
+    color: hsl(0, 0%, 95%);
+    border: 1px solid hsl(220, 20%, 35%);
+}
+
+/* Placeholder Text */
+.dark-mode .input-container input::placeholder {
+    color: hsl(0, 0%, 70%);
+}
+
+/* Button Styles */
+.dark-mode .primary-button {
+    background-color: hsl(221, 85%, 56%);
+}
+
+.dark-mode .primary-button:hover {
+    background-color: hsl(221, 80%, 45%);
+}
+
+.dark-mode .secondary-button {
+    border: 1px solid hsl(0, 0%, 80%);
+    color: hsl(0, 0%, 90%);
+}
+
+.dark-mode .secondary-button:hover {
+    background-color: hsl(0, 0%, 50%);
+    border: 1px solid hsl(220, 60%, 60%);
+    color: hsl(0, 0%, 100%);
+}
+
+/* FORGOT PASSWORD MODAL STYLING */
+.modal-overlay.forgot-password-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(235, 255, 255, 1);
+    /* Light cyan with 100% opacity */
+    display: none;
+    /* Initially hidden */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-container.forgot-password-modal {
+    max-width: 500px;
+    /* Match Login Modal */
+    width: 90%;
+    background-color: #1d4e89;
+    /* Same background color */
+    border-radius: 16px;
+    padding: 24px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    position: relative;
+    color: #e7e9ea;
+    /* Match Login Modal text color */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+/* Close Button Styling (Matches Login Modal) */
+.modal-close.forgot-password-modal {
+    position: absolute;
+    top: 6px;
+    right: 10px;
+    font-size: 24px;
+    /* Match Login Modal font size */
+    background: none;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+    /* Ensure it stays above other elements */
+}
+
+/* Title and Description Styling */
+.modal-title.forgot-password-modal {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.modal-description {
+    font-size: 1rem;
+    color: #d1d5db;
+    /* Lighter text for description */
+    margin-top: 5px;
+    margin-bottom: 22px;
+}
+
+/* Input Container Styling */
+.input-container {
+    position: relative;
+    width: 100%;
+    /* Full width */
+    max-width: 400px;
+    /* Match Login Modal input width */
+    margin: 0 auto;
+    /* Center the input field */
+}
+
+/* Primary Button Styling */
+.primary-button-forget-password-modal {
+    background-color: #3399ff;
+    /* Match Login Modal button color */
+    color: #fff;
+    border-radius: 30px;
+    /* Rounded corners */
+    padding: 14px 0;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    max-width: 400px;
+    /* Match Login Modal button width */
+    margin: 0 auto;
+    /* Center the button */
+    margin-top: 29px;
+}
+
+.primary-button-forget-password-modal:hover {
+    background-color: #4db8ff;
+    /* Button hover color */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .modal-container.forgot-password-modal {
+        max-width: 90%;
+        padding: 20px;
+    }
+
+    .modal-title.forgot-password-modal {
+        font-size: 1.6rem;
+    }
+
+    .modal-description {
+        font-size: 0.95rem;
+    }
+}
+
+/* DARK MODE - FORGOT PASSWORD MODAL */
+.dark-mode .modal-overlay.forgot-password-modal {
+    background: hsla(220, 20%, 10%, 1);
+}
+
+.dark-mode .modal-container.forgot-password-modal {
+    background-color: hsl(220, 20%, 20%);
+    color: hsl(0, 0%, 95%);
+    border: 1px solid hsl(220, 20%, 30%);
+}
+
+/* ================================
+   SIGNUP MODAL STYLING
+   ================================ */
+.modal-overlay.signup-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(235, 255, 255, 1);
+    /* Light cyan 100% opacity*/
+    display: none;
+    /* Initially hidden */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-container.signup-modal {
+    max-width: 500px;
+    width: 90%;
+    background-color: #1d4e89;
+    border-radius: 16px;
+    padding: 24px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    position: relative;
+    color: #e7e9ea;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.modal-close.signup-modal {
+    position: absolute;
+    top: 6px;
+    right: 10px;
+    font-size: 24px;
+    background: none;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.modal-title.signup-modal {
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Social Signup Buttons */
+.social-signup {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Input Fields */
+.signup-form .input-container {
+    position: relative;
+    width: 100%;
+    margin-bottom: 20px;
+    /* Spacing below input fields */
+}
+
+.signup-form .input-container input {
+    padding: 25px 15px 10px 15px;
+    /* Adjust top padding for space below the label */
+    width: 100%;
+    border: 1px solid #333639;
+    border-radius: 5px;
+    background: #fff;
+    font-size: 1rem;
+}
+
+.signup-form .input-container label {
+    position: absolute;
+    top: 17px;
+    /* Adjusted top position */
+    left: 16px;
+    color: #6e767d;
+    font-size: 1rem;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.signup-form .input-container input:focus + label,
+.signup-form .input-container input:not(:placeholder-shown) + label {
+    top: 5px;
+    /* Move label higher when input is focused or filled */
+    left: 15px;
+    font-size: 0.85rem;
+    color: #1d9bf0;
+}
+
+/* Center the Sign Up button */
+.signup-form .primary-button {
+    display: block;
+    /* Ensure the button takes up its space */
+    margin: auto;
+    /* Center the button horizontally with spacing above */
+    margin-top: 30px;
+    width: 90%;
+    /* Adjust width for better alignment */
+}
+
+/* Error State for Inputs */
+.signup-form .input-container input.error {
+    border-color: #ff0000;
+    box-shadow: 0 2px 5px rgba(255, 0, 0, 0.3);
+}
+
+/* Error Message */
+.signup-form .error-message {
+    margin-top: 7px;
+    font-size: 0.95rem;
+    color: #FF7F7F;
+    display: none;
+    /* Initially hidden */
+}
+
+/* Display error messages */
+.signup-form .error-message.show {
+    display: block;
+}
+
+/* DARK MODE - SIGNUP MODAL */
+.dark-mode .modal-overlay.signup-modal {
+    background: hsla(220, 20%, 15%, 1);
+}
+
+.dark-mode .modal-container.signup-modal {
+    background-color: hsl(220, 20%, 20%);
+    color: hsl(0, 0%, 95%);
+    border: 1px solid hsl(220, 20%, 30%);
+}
+
+/* Dark Mode Input Fields */
+.dark-mode .signup-form .input-container {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 20px;
+}
+
+.dark-mode .signup-form .input-container input {
+    width: 100%;
+    padding: 25px 15px 10px 15px;
+    /* Keep same input size */
+    font-size: 1rem;
+    background-color: hsl(220, 20%, 18%);
+    color: hsl(0, 0%, 95%);
+    border: 1px solid hsl(220, 20%, 30%);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Focus State */
+.dark-mode .signup-form .input-container input:focus {
+    border-color: hsl(210, 80%, 70%);
+    box-shadow: 0 4px 10px hsla(210, 80%, 70%, 0.4);
+    outline: none;
+}
+
+/* Floating Label */
+.dark-mode .signup-form .input-container label {
+    position: absolute;
+    top: 18px;
+    left: 16px;
+    color: hsl(0, 0%, 70%);
+    font-size: 1rem;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+/* Label Position on Input Focus */
+.dark-mode .signup-form .input-container input:not(:placeholder-shown) + label,
+.dark-mode .signup-form .input-container input:focus + label {
+    top: 5px;
+    left: 16px;
+    font-size: 0.85rem;
+    color: hsl(210, 80%, 70%);
+}
+
+/* Password Input Field (Consistent Size) */
+.dark-mode .signup-form .password-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+}
+
+.dark-mode .signup-form .password-wrapper input {
+    padding-right: 50px;
+}
+
+/* Toggle Password Icon */
+.dark-mode .signup-form .password-wrapper .toggle-password {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: hsl(0, 0%, 70%);
+    font-size: 1.1rem;
+}
+
+.dark-mode .signup-form .password-wrapper .toggle-password:hover {
+    color: hsl(210, 80%, 70%);
+}
+
+/* Error State */
+.dark-mode .signup-form .input-container input.error {
+    border-color: hsl(0, 80%, 60%);
+    box-shadow: 0 2px 5px hsla(0, 80%, 60%, 0.4);
+}
+
+/* Error Message */
+.dark-mode .signup-form .error-message {
+    color: hsl(0, 80%, 70%);
+    font-size: 0.95rem;
+}
+
+/* Sign-Up Button */
+.dark-mode .signup-form .primary-button {
+    background-color: hsl(210, 80%, 50%);
+    color: hsl(0, 0%, 100%);
+    border-radius: 30px;
+    padding: 14px 0;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.dark-mode .signup-form .primary-button:hover {
+    background-color: hsl(210, 80%, 60%);
+}
+
+/* Secondary Button */
+.dark-mode .signup-form .secondary-button {
+    background-color: transparent;
+    color: hsl(0, 0%, 90%);
+    border: 1px solid hsl(0, 0%, 90%);
+    text-align: center;
+    font-size: 0.9rem;
+    cursor: pointer;
+    padding: 14px 0;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.dark-mode .signup-form .secondary-button:hover {
+    background-color: hsl(220, 50%, 25%);
+}
+
+/* ==========================================================
+   REGISTRATION COMPLETE MODAL STYLES
+========================================================== */
+/* DIM THE ENTIRE PAGE WHEN MODAL IS ACTIVE */
+.registration-complete-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    /* Darker background for better focus */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    /* Ensures it's above everything */
+}
+
+/* MODAL CONTAINER */
+.registration-complete-container {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    max-width: 450px;
+    /* Slightly reduced width for a better look */
+    height: auto;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 0.3s ease-in-out;
+    position: relative;
+}
+
+/* CLOSE BUTTON (X) */
+.registration-complete-close {
+    position: absolute;
+    top: 4px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+    color: #000;
+    transition: color 0.3s ease;
+}
+
+/* MODAL HEADER */
+.registration-complete-content h2 {
+    color: #1d4e89;
+    /* ConsultCareConnect primary color */
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+/* MODAL TEXT */
+.registration-complete-content p {
+    color: #444;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+/* BUTTON CONTAINER */
+.registration-complete-buttons {
+    display: flex;
+    justify-content: space-around;
+    gap: 12px;
+}
+
+/* PRIMARY BUTTON (LOG IN NOW) */
+.registration-complete-primary {
+    background: #1d9bf0;
+    color: #ffffff;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background 0.3s ease;
+    width: 46%;
+}
+
+.registration-complete-primary:hover {
+    background: #0c7dc0;
+}
+
+/* SECONDARY BUTTON (MAYBE LATER) */
+.registration-complete-secondary {
+    background: #bbb;
+    /* Slightly darker gray for better contrast */
+    color: #000;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background 0.3s ease;
+    width: 46%;
+}
+
+.registration-complete-secondary:hover {
+    background: #9f9f9f;
+    /* Slightly darker gray hover */
+}
+
+/* FADE-IN ANIMATION */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* DARK MODE - REGISTRATION COMPLETE MODAL */
+.dark-mode .registration-complete-overlay {
+    background: hsla(220, 20%, 10%, 0.9);
+}
+
+.dark-mode .registration-complete-container {
+    background: hsl(220, 20%, 20%);
+    color: hsl(0, 0%, 95%);
+    border: 1px solid hsl(220, 20%, 30%);
+}
+
+.dark-mode .registration-complete-content h2 {
+    color: hsl(0, 0%, 86%);
+}
+
+.dark-mode .registration-complete-content p {
+    color: hsl(0, 0%, 65%);
+}
+
+/* Buttons */
+.dark-mode .registration-complete-primary {
+    background: hsl(221, 85%, 56%);
+    color: hsl(0, 0%, 100%);
+}
+
+.dark-mode .registration-complete-primary:hover {
+    background: hsl(221, 80%, 45%);
+}
+
+.dark-mode .registration-complete-secondary {
+    background: hsl(0, 0%, 50%);
+    color: hsl(0, 0%, 95%);
+}
+
+.dark-mode .registration-complete-secondary:hover {
+    background: hsl(0, 0%, 40%);
+}
+
+.dark-mode .registration-complete-close {
+    color: #fff;
+}
+
+/* ================================
+   CONSULTATION MODAL STYLING
+   ================================ */
+/* Modal Overlay */
+.modal-overlay.consultation-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(235, 255, 255, 1);
+    /* Light cyan with 100% opacity */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Modal Container */
+.modal-container.consultation-modal {
+    border-radius: 12px;
+    width: 100%;
+    max-width: 500px;
+    padding: 25px;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+/* Modal Content Styling */
+#consultationModal .modal-content {
+    padding: 10px;
+}
+
+
+/* Modal Close Button */
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: #333;
+    cursor: pointer;
+}
+
+/* Modal Title */
+.modal-title.confirmation-modal {
+    font-size: 1.8rem;
+    margin-top: -5px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Icon Styling */
+.icon-container {
+    margin: 16px 0;
+}
+
+.icon {
+    width: 50px;
+    height: 50px;
+}
+
+/* Confirmation Details */
+.confirmation-details p {
+    font-size: 1.1rem;
+    color: #000;
+    margin: 10px 0;
+    font-weight: 500px;
+}
+
+.confirmation-details strong {
+    color: #1d4e89;
+    font-weight: 500;
+}
+
+#uploaded-document-link {
+    color: #1d4e89;
+    font-weight: 500;
+}
+
+.uploaded-documents,
+.calendarDownload-link {
+    display: block;
+    color: #1d9bf0;
+    text-decoration: underline;
+    margin-top: 15px;
+    font-size: 1.1rem;
+}
+
+/* Button Container */
+.button-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    /* Align buttons vertically in rows */
+    gap: 10px;
+}
+
+/* Base Button Styles */
+.button-container button {
+    width: 100%;
+    max-width: 350px;
+    padding: 12px 18px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 12px;
+}
+
+/* Download Appointment Button */
+.downloadAppointment-button {
+    background-color: #1d9bf0;
+    /* Bright blue */
+    color: #fff;
+}
+
+.downloadAppointment-button:hover {
+    background-color: #1d4e89;
+    /* Deep blue */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Send to Email Button */
+/*
+.sendEmail-button {
+    background-color: #1d9bf0;
+    color: #fff;
+}
+
+.sendEmail-button:hover {
+    background-color: #1d4e89;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+*/
+
+/* Join Consultation Button */
+.joinConsultation-button {
+    background-color: #1d9bf0;
+    /* Bright blue */
+    color: #fff;
+}
+
+.joinConsultation-button:hover {
+    background-color: #1d4e89;
+    /* Deep blue */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Reschedule Button */
+.reschedule-button {
+    background-color: #e53935;
+    /* Light red */
+    color: #fff;
+}
+
+.reschedule-button:hover {
+    background-color: #cc0000;
+    /* Dark red */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+}
+
+
+
+/* Responsive Design for Tablet to Mobile Screens */
+@media (max-width: 1024px) {
+    .modal-container.consultation-modal {
+        width: 90%;
+        max-width: 500px;
+    }
+
+    /* Modal Title */
+    .modal-title.confirmation-modal {
+        font-size: 1.6rem;
+    }
+
+    /* Confirmation Details */
+    .confirmation-details p {
+        font-size: 1rem;
+    }
+
+    #uploaded-document-link {
+        font-size: 1rem;
+    }
+
+    .button-container {
+        align-items: stretch;
+        /* Ensure full-width buttons */
+    }
+
+    .button-container button {
+        width: 85%;
+        max-width: 350px;
+        font-size: 0.96rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/* DARK MODE - CONSULTATION MODAL */
+/* Dark background overlay */
+.dark-mode .modal-overlay.consultation-modal {
+    background-color: hsl(220, 20%, 15%);
+    color: hsl(0, 0%, 90%);
+}
+
+/* Main Modal Container */
+.dark-mode .modal-container.consultation-modal {
+    background-color: hsl(220, 20%, 20%) !important;
+    color: hsl(0, 0%, 95%) !important;
+    border: 1px solid hsl(220, 20%, 30%) !important;
+    width: 100%;
+    max-width: 500px;
+    padding: 25px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) ; /* Stronger shadow for depth */
+}
+
+/* Modal Content Styling */
+.dark-mode #consultationModal .modal-content {
+    background-color: hsl(220, 20%, 20%) !important;
+    color: hsl(0, 0%, 95%) !important;
+    padding: 10px;
+    border-radius: 12px;
+}
+
+.dark-mode .modal-container.consultation-modal .modal-close {
+    color: hsl(0, 0%, 75%) !important;
+}
+
+/* Modal Title */
+.dark-mode .modal-title.confirmation-modal {
+    font-size: 1.8rem;
+    margin-top: -5px;
+    color: hsl(0, 0%, 85%);
+}
+
+/* Icon Styling */
+.dark-mode .icon-container .icon {
+    filter: brightness(0.9); /* Adjust icon visibility */
+}
+
+/* Confirmation Details */
+.dark-mode .confirmation-details p {
+    font-size: 1.1rem;
+    color: hsl(0, 0%, 85%);
+    margin: 10px 0;
+    font-weight: 400;
+}
+
+/* Strong elements like date & time */
+.dark-mode .confirmation-details strong {
+    color: hsl(200, 80%, 70%);
+    font-weight: 400;
+}
+
+/* Links in Dark Mode */
+.dark-mode #uploaded-document-link,
+.dark-mode .calendarDownload-link {
+    color: hsl(200, 80%, 70%);
+    text-decoration: underline;
+}
+
+.dark-mode #uploaded-document-link:hover,
+.dark-mode .calendarDownload-link:hover {
+    color: hsl(200, 80%, 70%);
+    text-decoration: none;
+}
+
+/* DARK MODE - CONSULTATION MODAL BUTTONS */
+.dark-mode .downloadAppointment-button {
+    background-color: #1d4e89 !important;
+    color: hsl(0, 0%, 90%) !important;
+}
+
+.dark-mode .downloadAppointment-button:hover {
+    background-color: #1d9bf0 !important;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Join Consultation Button (Inverted) */
+.dark-mode .joinConsultation-button {
+    background-color: #1d4e89 !important;
+    color: hsl(0, 0%, 90%) !important;
+}
+
+.dark-mode .joinConsultation-button:hover {
+    background-color: #1d9bf0 !important;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Reschedule Button (Inverted) */
+.dark-mode .reschedule-button {
+    background-color: #cc0000 !important; /* Bright red */
+    color: hsl(0, 0%, 90%) !important; /* Light text */
+}
+
+.dark-mode .reschedule-button:hover {
+    background-color: #e53935 !important;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Responsive Design for Tablet to Mobile Screens */
+@media (max-width: 1024px) { 
+    .dark-mode .modal-container.consultation-modal {
+        width: 90% !important;
+        max-width: 500px !important;
+    }
+
+    /* Modal Title */
+    .dark-mode .modal-title.confirmation-modal {
+        font-size: 1.6rem !important;
+    }
+
+    /* Confirmation Details */
+    .dark-mode .confirmation-details p {
+        font-size: 1rem !important;
+    }
+
+    .dark-mode #uploaded-document-link {
+        font-size: 1rem !important;
+    }
+
+    .dark-mode .button-container {
+        align-items: stretch !important;
+        /* Ensure full-width buttons */
+    }
+
+    .dark-mode .button-container button {
+        width: 85% !important;
+        max-width: 350px !important;
+        font-size: 0.96rem !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+}
+
+/* ================================
+   GENERIC MODAL STYLING
+   ================================ */
+/* Generic Modal Overlay */
+.modal-overlay.generic-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(235, 255, 255, 1);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Generic Modal Container */
+.modal-container.generic-modal {
+    max-width: 500px;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 7px;
+    padding: 20px;
+    color: #333;
+    text-align: left;
+    position: relative;
+    overflow-y: auto;
+    /* Scrollable content */
+    max-height: 80vh;
+    /* Allow scroll for large content */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Generic Modal Close Button */
+.modal-close.generic-modal {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: #333;
+    cursor: pointer;
+}
+
+/* Section Headings */
+.modal-body.generic-modal h2 {
+    font-size: 1.3rem;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+/* Paragraph Spacing */
+.modal-body.generic-modal p {
+    margin-bottom: 15px;
+}
+
+/* Generic Modal Title */
+.modal-title.generic-modal {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    text-align: center;
+    font-weight: bold;
+    color: #222;
+    /* Darker text for readability */
+}
+
+/* Generic Modal Body */
+.modal-body.generic-modal {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: hsl(0, 0%, 30%);
+}
+
+/* Reset list styles for the modal */
+.modal-body ul {
+    list-style-type: disc;
+    /* Display bullet points */
+    margin: 10px 0;
+    /* Add vertical spacing */
+    padding-left: 20px;
+    /* Add indentation */
+    text-align: left !important;
+    /* Force left alignment */
+}
+
+.modal-body ul li {
+    margin-bottom: 5px;
+    /* Add spacing between list items */
+    line-height: 1.5;
+    /* Improve readability */
+    text-align: left !important;
+    /* Ensure text aligns left */
+}
+
+/* Ensure all modal text is aligned left */
+.modal-body {
+    text-align: left !important;
+    /* Override inherited center alignment */
+}
+
+/* Custom List Styling */
+.custom-list {
+    margin: 10px 0;
+    /* Space above and below the list */
+    padding-left: 20px;
+    /* Indent list */
+}
+
+.list-item {
+    position: relative;
+    margin-bottom: 8px;
+    padding-left: 20px;
+    line-height: 1.5;
+    text-align: left;
+}
+
+.list-item::before {
+    content: "•";
+    position: absolute;
+    top: -5px;
+    bottom: 0;
+    left: 0;
+    font-size: 1.5em;
+    color: hsl(0, 0%, 30%);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #helpModal .modal-container {
+         width: 90%;
+        max-width: 500px;
+        padding: 20px;
+    }
+
+    #helpModal .modal-title {
+        font-size: 1.6rem;
+    }
+}
+
+
+/* DARK MODE - GENERIC MODAL */
+.dark-mode .modal-overlay.generic-modal {
+    background: hsla(220, 20%, 15%, 1);
+}
+
+.dark-mode .modal-container.generic-modal {
+    background-color: hsl(220, 20%, 18%);
+    color: hsl(0, 0%, 95%);
+    border: 1px solid hsl(220, 20%, 30%);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+    border-radius: 7px;
+    padding: 24px;
+    width: 90%;
+    max-width: 600px;
+    text-align: left;
+}
+
+/* Close Button */
+.dark-mode .modal-close {
+    color: hsl(0, 0%, 90%);
+    font-size: 24px;
+    transition: color 0.3s ease;
+}
+
+/* Modal Title */
+.dark-mode .modal-title.generic-modal {
+    margin-bottom: 15px;
+    color: hsl(0, 0%, 98%);
+}
+
+/* Modal Body */
+.dark-mode .modal-body.generic-modal {
+    font-size: 1rem;
+    color: hsl(0, 0%, 88%);
+}
+
+/* Section Headings */
+.dark-mode .modal-body.generic-modal h2 {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: hsl(220, 50%, 65%);
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+/* Paragraph Spacing */
+.dark-mode .modal-body.generic-modal p {
+    margin-bottom: 15px;
+}
+
+/* Lists */
+.dark-mode .modal-body.generic-modal .custom-list {
+    padding-left: 20px;
+}
+
+.dark-mode .modal-body.generic-modal .list-item {
+    margin-bottom: 8px;
+    position: relative;
+    padding-left: 20px;
+}
+
+.dark-mode .modal-body.generic-modal .list-item::before {
+    content: "•";
+    position: absolute;
+    top: -5px;
+    bottom: 0;
+    left: 0;
+    font-size: 1.5em;
+    color: hsl(220, 40%, 70%);
+}
+
+/* Links */
+.dark-mode .modal-body.generic-modal a {
+    color: hsl(220, 60%, 60%);
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+.dark-mode .modal-body.generic-modal a:hover {
+    color: hsl(220, 60%, 75%);
+}
+
+/* Contact Information */
+.dark-mode .modal-body.generic-modal .custom-list strong {
+    color: hsl(220, 50%, 75%);
+}
+
+/* DARK MODE - HELP CENTER MODAL */
+.dark-mode #helpModal .modal-overlay {
+    background: hsla(220, 20%, 15%, 1);
+}
+
+.dark-mode #helpModal .modal-container {
+    background-color: hsl(220, 20%, 15%);
+    color: hsl(0, 0%, 95%);
+    border: 1px solid hsl(220, 20%, 25%);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    border-radius: 16px;
+    padding: 24px;
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Close Button */
+.dark-mode #helpModal .modal-close {
+    color: hsl(0, 0%, 80%);
+    font-size: 24px;
+    transition: color 0.3s ease;
+}
+
+/* Modal Title */
+.dark-mode modal-title generic-modal {
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 15px;
+    color: hsl(0, 0%, 98%);
+}
+
+/* Form Styling */
+.dark-mode .help-center-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+/* Input Containers */
+.dark-mode .help-center-form .input-container {
+    position: relative;
+    width: 100%;
+}
+
+/* Input Fields */
+.dark-mode .help-center-form input,
+.dark-mode .help-center-form textarea {
+    width: 100%;
+    background: hsl(220, 20%, 20%);
+    border: 1px solid hsl(220, 20%, 30%);
+    border-radius: 8px;
+    color: hsl(0, 0%, 95%);
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Focus Effect */
+.dark-mode .help-center-form input:focus,
+.dark-mode .help-center-form textarea:focus {
+    border-color: hsl(220, 50%, 60%);
+    box-shadow: 0 0 8px rgba(29, 155, 240, 0.4);
+    outline: none;
+}
+
+/* Floating Labels */
+.dark-mode .help-center-form label {
+    position: absolute;
+    top: 17px;
+    left: 16px;
+    color: hsl(220, 20%, 60%);
+    font-size: 1rem;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+/* Label Animation */
+.dark-mode .help-center-form input:not(:placeholder-shown) + label,
+.dark-mode .help-center-form textarea:not(:placeholder-shown) + label,
+.dark-mode .help-center-form input:focus + label,
+.dark-mode .help-center-form textarea:focus + label {
+    top: 5px;
+    left: 12px;
+    font-size: 0.85rem;
+    color: hsl(220, 50%, 70%);
+}
+
+/* Submit Button */
+.dark-mode .help-center-form .primary-button {
+    background-color: hsl(220, 60%, 50%);
+    color: #fff;
+    padding: 12px;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dark-mode .help-center-form .primary-button:hover {
+    background-color: hsl(220, 60%, 65%);
+    box-shadow: 0 4px 10px rgba(29, 155, 240, 0.4);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .dark-mode #helpModal .modal-container {
+        width: 90%;
+        max-width: 500px;
+        padding: 20px;
+    }
+
+    .dark-mode #helpModal .modal-title {
+        font-size: 1.6rem;
+    }
+
+}
+
