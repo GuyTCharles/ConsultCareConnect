@@ -21,10 +21,10 @@
   Users can submit inquiries via a form-style modal with a clean UI.
   
 - 🤖 **AI Chatbot Assistant**  
-  A built-in chatbot helps users by answering basic questions about services offered on the site—improving user engagement and guiding them through available features.
+  A built-in chatbot helps users by answering basic questions about services offered on the site, improving user engagement, and guiding them through available features.
 
 - 🌗 **Dark Mode / Light Mode Toggle**  
-  Seamless theme switching preserved across sessions.
+  Seamless theme switching is preserved across sessions.
 
 - 📂 **Base64 PDF Viewer**  
   Embedded PDF viewer in new tab windows; fallback messaging for unsupported file types.
@@ -54,5 +54,4 @@
 ---
 
 ## 👨‍💻 Author
-**Guy Thierry Charles**
-guythierrycharles@gmail.com
+**guythierrycharles@gmail.com**
