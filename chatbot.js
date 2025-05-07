@@ -10,11 +10,29 @@ document.addEventListener("DOMContentLoaded", function () {
     const chatBox = document.getElementById("chatBox");
     const toggleSwitch = document.getElementById("themeToggle");
 
+    // ✅ Define greetingMessage FIRST
+    const greetingMessage = `Hello, welcome to ConsultCareConnect!<br> 
+    I am <strong>Nexa</strong>, your virtual assistant. I'm here to answer common questions about the platform's services. Please select a topic:<br>
+    <strong>
+    <a href="#" class="chat-link" data-question="Services offered">Services offered</a> <br> 
+    <a href="#" class="chat-link" data-question="Home page">Home page</a> <br>
+    <a href="#" class="chat-link" data-question="Consultation page">Consultation page</a> <br>
+    <a href="#" class="chat-link" data-question="Consultation portal">Consultation portal</a> <br>
+    <a href="#" class="chat-link" data-question="Types of consultations">Types of consultations</a> <br>
+    <a href="#" class="chat-link" data-question="Schedule a consultation">Schedule a consultation</a> <br>
+    <a href="#" class="chat-link" data-question="Symptom checker">Symptom checker</a> <br>
+    <a href="#" class="chat-link" data-question="Medical records">Medical records</a> <br>
+    <a href="#" class="chat-link" data-question="Contact us">Contact us</a>
+    </strong>`;
+
+    // ✅ Now it's safe to load chat history
+    loadChatHistory();
+
     // ✅ Apply Dark Mode to Chat Container on Page Load
     function applyDarkMode(isDark) {
         document.documentElement.classList.toggle("dark-mode", isDark);
         document.body.classList.toggle("dark-mode", isDark);
-        
+
         // Apply dark mode styling to chat
         if (chatContainer) {
             chatContainer.classList.toggle("dark-mode", isDark);
@@ -35,24 +53,6 @@ document.addEventListener("DOMContentLoaded", function () {
             applyDarkMode(newMode);
         });
     }
-
-    // Load chat history on page load
-    loadChatHistory();
-
-    // Ensure greeting message is stored properly
-    const greetingMessage = `Hello, welcome to ConsultCareConnect!<br> 
-    I am <strong>Nexa</strong>, your virtual assistant. I'm here to answer common questions about the platform's services. Please select a topic:<br>
-    <strong>
-    <a href="#" class="chat-link" data-question="Services offered">Services offered</a> <br> 
-    <a href="#" class="chat-link" data-question="Home page">Home page</a> <br>
-    <a href="#" class="chat-link" data-question="Consultation page">Consultation page</a> <br>
-    <a href="#" class="chat-link" data-question="Consultation portal">Consultation portal</a> <br>
-    <a href="#" class="chat-link" data-question="Types of consultations">Types of consultations</a> <br>
-    <a href="#" class="chat-link" data-question="Schedule a consultation">Schedule a consultation</a> <br>
-    <a href="#" class="chat-link" data-question="Symptom checker">Symptom checker</a> <br>
-    <a href="#" class="chat-link" data-question="Medical records">Medical records</a> <br>
-    <a href="#" class="chat-link" data-question="Contact us">Contact us</a>
-    </strong>`;
 
     // Ensure greeting message is stored properly
     try {
@@ -194,44 +194,44 @@ document.addEventListener("DOMContentLoaded", function () {
             {
                 keywords: ["hello", "hi", "how are you", "hey", "greetings"],
                 reply: "Hello! I'm Nexa. I am here to help! Feel free to ask me any questions you may have regarding ConsultCareConnect services."
-        },
+            },
             {
                 keywords: ["services", "services offered", "services do you offer", "what does this site offer", "site services", "available services"],
                 reply: "We offer virtual health consultations, symptom assessments, medical record management, and appointment scheduling."
-        },
+            },
             {
                 keywords: ["home", "home page", "homepage", "main page", "landing page"],
                 reply: "The <strong>Home page</strong> provides an overview of our services and quick access to key features like consultation scheduling, symptom checker, and medical records."
-        },
+            },
             {
                 keywords: ["consultation page", "consultation section", "consultation services"],
                 reply: "The <strong>Consultation</strong> page consists of two sections:<br> 🔹 <strong>Schedule a Consultation</strong> page where you can book appointments for virtual consultations.<br> 🔹 <strong>Consultation</strong> page to access your scheduled virtual consultations."
-        },
+            },
             {
                 keywords: ["types of consultations", "type of consultation", "consultation types", "consultation type", "consultation categories", "available consultations"],
                 reply: "We offer a range of virtual consultations:<br> <strong>🔹 General Consultation</strong> <br> <strong>🔹 Pediatric Consultation</strong><br> <strong>🔹 Specialist Consultation</strong><br> <strong>🔹 Telemedicine Follow-up</strong><br> <strong>🔹 Mental-Health Consultation</strong><br> Each consultation type is designed to meet different healthcare needs."
-        },
+            },
             {
                 keywords: ["schedule", "scheduling", "book", "booking", "schedule a consultation", "schedule consultation", "book an appointment", "book appointment"],
                 reply: "The <strong>Schedule a Consultation</strong> page allows you to book virtual appointments with healthcare professionals."
-        },
+            },
             {
                 keywords: ["portal", "virtual", "online", "consultation portal", "online consultation"],
                 reply: "The <strong>Consultation Portal</strong> is a secure space where users can connect with healthcare professionals, access their virtual consultations, and chat in real-time with health specialists."
-        },
+            },
             {
                 keywords: ["symptom", "symptoms", "checker", "diagnose", "diagnosis", "analysis", "check symptoms"],
                 reply: "The <strong>Symptoms Checker</strong> feature helps you assess your symptoms and find relevant health information."
-        },
+            },
             {
                 keywords: ["medical", "record", "records", "history", "data"],
                 reply: "On the <strong>Medical Records</strong> page, you can add, view, and manage your medical history securely."
-        },
+            },
             {
                 keywords: ["contact", "contact us", "customer", "support", "help", "assistance"],
                 reply: "You can speak with a support specialist by using our Call button for immediate assistance.<br> Our support hours are 8:00 AM to 8:00 PM.<br> If you prefer email support, you can <a href='#' onclick='openModal(\"helpModal\")'>click here</a> to open our Help Center portal and send us a message."
-        }
-    ];
+            }
+        ];
 
         // Sort responses by keyword length to prioritize longer phrases first
         responses.sort((a, b) => {
@@ -250,4 +250,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
         setTimeout(() => addMessage("Nexa", response, true), 1000);
     }
+
+    // Close chat when clicking outside of chatContainer
+    document.addEventListener("click", function (event) {
+        if (
+            chatContainer.style.display === "flex" &&
+            !chatContainer.contains(event.target) &&
+            !chatButton.contains(event.target)
+        ) {
+            chatContainer.style.display = "none";
+        }
+    });
 });
