@@ -232,7 +232,7 @@
 
 .input-container input:focus + label {
     color: #1d9bf0;
-    /* Change label color on focus */
+    /* Channe label color on focus */
 }
 
 /* Floating Label */
@@ -1375,7 +1375,7 @@
 
 /* Generic Modal Container */
 .modal-container.generic-modal {
-    max-width: 500px;
+    max-width: 800px;
     width: 100%;
     background-color: #fff;
     border-radius: 7px;
@@ -1388,6 +1388,11 @@
     max-height: 80vh;
     /* Allow scroll for large content */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+#helpModal .modal-container {
+    max-width: 500px;
+    width: 100%;
 }
 
 /* Generic Modal Close Button */
@@ -1487,8 +1492,7 @@
 /* Responsive Design */
 @media (max-width: 768px) {
     #helpModal .modal-container {
-         width: 90%;
-        max-width: 500px;
+        width: 90%;
         padding: 20px;
     }
 
