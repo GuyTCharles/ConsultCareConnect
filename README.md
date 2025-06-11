@@ -5,7 +5,7 @@
 ---
 
 ## 🌐 Live Preview
-`https://yourdomain.com/consultcareconnect`
+`[https://yourdomain.com/consultcareconnect](https://guytcharles.github.io/ConsultCareConnect/homepage.html)`
 
 ---
 
