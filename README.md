@@ -54,7 +54,8 @@
 ---
 
 ## 👨‍💻 Author
-**guythierrycharles@gmail.com**
+Guy Thierry Charles
+📧 **Contact**: guythierrycharles@gmail.com
 
 ---
 
