@@ -1445,6 +1445,18 @@ body.dark-mode {
 }
 
 @media (max-width: 600px) {
+   .home-modern .hero-content {
+        padding: 2rem 0 2.5rem;
+    }
+
+    .home-modern .hero-title {
+        font-size: 2.5rem !important;
+    }
+
+    .home-modern .hero-btn {
+        width: 100%;
+    }
+   
     .logo-img {
         width: 53px;
         height: 50px;
@@ -1470,14 +1482,6 @@ body.dark-mode {
 }
 
 @media (max-width: 520px) {
-    .home-modern .hero-content {
-        padding: 3rem 0 2.6rem;
-    }
-
-    .home-modern .hero-btn {
-        width: 100%;
-    }
-
     .home-modern .card {
         min-height: 255px;
     }
