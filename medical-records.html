@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ConsultCareConnect</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="search-bar.css">
+    <link rel="stylesheet" href="modal.css">
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="medical-records.css">
+    <link rel="icon" href="images/website-icon.jpg" type="image/jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+
+<body class="records-modern">
+    <header>
+        <nav class="navbar">
+            <!-- Logo Container with Image and Text -->
+            <a href="homepage.html" class="logo-container">
+                <div class="logo-img-container">
+                    <img src="images/logo.jpg" alt="Stethoscope Logo" class="logo-img">
+                </div>
+                <div class="logo-text-container">
+                    <span class="logo-text">ConsultCareConnect</span>
+                </div>
+            </a>
+
+            <!-- Right Section for Icons -->
+            <div class="right-section">
+                <!-- Home Icon -->
+                <a href="homepage.html" class="home-icon" title="Go to Homepage">
+                    <i class="fa fa-home"></i>
+                </a>
+
+                <!-- Search Icon -->
+                <div class="search-icon">
+                    <img src="images/search-icon.png" alt="Search Icon" class="search-img">
+                </div>
+
+                <!-- Light and Dark Mode Effect -->
+                <div class="toggle-switch">
+                    <label class="slider">
+                        <input type="checkbox" class="checkbox" id="themeToggle">
+                        <span class="icon"></span>
+                    </label>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="medical-records-container">
+        <!-- Medical Records Header -->
+        <section class="medical-records-header">
+            <p class="records-kicker">Health Vault</p>
+            <h1>Your Medical Records</h1>
+            <p>Access, manage, and upload your medical records securely.</p>
+            <div class="records-highlights" aria-label="Medical record benefits">
+                <span>Encrypted storage</span>
+                <span>Instant download access</span>
+                <span>Simple record management</span>
+            </div>
+        </section>
+
+        <!-- My Records Section -->
+        <section class="medical-records-list">
+            <h2>My Records</h2>
+            <p class="records-subtext">Uploaded files appear here with options to view, download, or delete.</p>
+            <div id="recordsContainer">
+                <p>No records available. Upload a new document to see records.</p>
+            </div>
+
+        </section>
+
+        <!-- Upload New Medical Record -->
+        <section class="upload-records-section">
+            <h2>Upload a New Record</h2>
+            <p class="records-subtext">Accepted formats: PDF, JPG, PNG, DOCX.</p>
+            <form id="uploadForm">
+                <label for="recordTitle">Record Title</label>
+                <input type="text" id="recordTitle" placeholder="Enter record title" required>
+
+                <label for="recordDate">Date</label>
+                <input type="date" id="recordDate" required>
+
+                <label for="recordFile">Upload File</label>
+                <input type="file" id="recordFile" accept=".pdf,.jpg,.png,.docx" required>
+
+                <button type="submit" class="upload-button">Upload</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Delete Confirmation Modal -->
+    <div id="deleteConfirmModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <p>Are you sure you want to delete this record?</p>
+            <button id="confirmDeleteButton" class="modal-button confirm">Yes</button>
+            <button id="cancelDeleteButton" class="modal-button cancel">No</button>
+        </div>
+    </div>
+
+    <!-- Terms of Service Modal -->
+    <div class="modal-overlay generic-modal" id="termsModal">
+        <div class="modal-container generic-modal">
+            <button class="modal-close generic-modal" onclick="closeModal('termsModal')">×</button>
+            <div class="modal-content">
+                <h1 class="modal-title generic-modal">Terms of Service</h1>
+                <div class="modal-body generic-modal">
+                    <p>
+                        <strong>Effective Date:</strong> January 13, 2025
+                    </p>
+                    <p>
+                        Welcome to ConsultCareConnect! These Terms of Service (the "Terms") govern your use of our platform, website, and services provided by ConsultCareConnect ("we," "our," or "us"). By accessing or using our services, you agree to comply with these Terms. Please read them carefully. If you do not agree, you may not use our platform.
+                    </p>
+                    <h2>1. Acceptance of Terms</h2>
+                    <p>By creating an account, accessing, or using ConsultCareConnect, you agree to:</p>
+                    <div class="custom-list">
+                        <div class="list-item">Be bound by these Terms of Service.</div>
+                        <div class="list-item">Comply with all applicable laws and regulations.</div>
+                    </div>
+                    <p>If you are using the platform on behalf of an organization, you represent that you are authorized to bind that organization to these Terms.</p>
+
+                    <h2>2. Our Services</h2>
+                    <p>ConsultCareConnect provides a platform for virtual health consultations, symptom assessments, and access to health-related resources. While we strive to provide accurate and timely information, our platform:</p>
+                    <div class="custom-list">
+                        <div class="list-item"><strong>Is not a substitute for professional medical advice, diagnosis, or treatment.</strong></div>
+                        <div class="list-item">Does not establish a doctor-patient relationship between users and healthcare professionals.</div>
+                    </div>
+                    <p>For medical emergencies, please call your local emergency number immediately.</p>
+
+                    <h2>3. Eligibility</h2>
+                    <p>You must be at least 18 years old or have the legal capacity to agree to these Terms. By using ConsultCareConnect, you represent that:</p>
+                    <div class="custom-list">
+                        <div class="list-item">You meet the minimum age requirements.</div>
+                        <div class="list-item">All information you provide is truthful, accurate, and complete.</div>
+                    </div>
+
+                    <h2>4. User Accounts</h2>
+                    <p>To access certain features, you must create an account. You agree to:</p>
+                    <div class="custom-list">
+                        <div class="list-item">Keep your login credentials secure and confidential.</div>
+                        <div class="list-item">Notify us immediately if you suspect unauthorized use of your account.</div>
+                        <div class="list-item">Be responsible for all activity under your account.</div>
+                    </div>
+                    <p>We reserve the right to terminate or suspend accounts for violations of these Terms.</p>
+
+                    <h2>5. Privacy Policy</h2>
+                    <p>Your privacy is important to us. Please review our <a href="#" onclick="openModal('privacyModal')">Privacy Policy</a> to understand how we collect, use, and protect your information.</p>
+
+                    <h2>6. Prohibited Activities</h2>
+                    <p>When using our platform, you agree not to:</p>
+                    <div class="custom-list">
+                        <div class="list-item">Provide false or misleading information.</div>
+                        <div class="list-item">Upload or share content that is illegal, harmful, defamatory, or infringes on the rights of others.</div>
+                        <div class="list-item">Attempt to access unauthorized areas of the platform.</div>
+                        <div class="list-item">Engage in activities that harm, disrupt, or interfere with our services or other users.</div>
+                    </div>
+
+                    <h2>7. Fees and Payments</h2>
+                    <p>Some services may require payment. By purchasing these services, you agree to:</p>
+                    <div class="custom-list">
+                        <div class="list-item">Provide accurate payment information.</div>
+                        <div class="list-item">Pay all applicable fees and charges, including taxes.</div>
+                        <div class="list-item">Comply with the terms of any third-party payment processor we use.</div>
+                    </div>
+
+                    <h2>8. Intellectual Property</h2>
+                    <p>All content, trademarks, and services provided by ConsultCareConnect, including but not limited to text, graphics, logos, and software, are owned by us or our licensors. You may not use, reproduce, or distribute our content without prior written permission.</p>
+
+                    <h2>9. Third-Party Services</h2>
+                    <p>Our platform may include links to third-party websites or services. We are not responsible for the content, policies, or practices of third parties. Your interactions with third-party services are solely between you and the third party.</p>
+
+                    <h2>10. Disclaimer of Warranties</h2>
+                    <p>ConsultCareConnect is provided "as is" and "as available." We do not warrant:</p>
+                    <div class="custom-list">
+                        <div class="list-item">That the platform will be uninterrupted, error-free, or secure.</div>
+                        <div class="list-item">The accuracy or reliability of information provided.</div>
+                    </div>
+                    <p>To the fullest extent permitted by law, we disclaim all warranties, express or implied.</p>
+
+                    <h2>11. Limitation of Liability</h2>
+                    <p>To the maximum extent permitted by law, ConsultCareConnect, its employees, or partners will not be liable for:</p>
+                    <div class="custom-list">
+                        <div class="list-item">Any indirect, incidental, or consequential damages arising from your use of our services.</div>
+                        <div class="list-item">Loss of data, profits, or goodwill.</div>
+                    </div>
+                    <p>Our liability is limited to the amount you paid for our services in the past 12 months.</p>
+
+                    <h2>12. Indemnification</h2>
+                    <p>You agree to indemnify and hold ConsultCareConnect harmless from any claims, damages, or expenses arising from your use of the platform, your violation of these Terms, or your infringement of others' rights.</p>
+
+                    <h2>13. Termination</h2>
+                    <p>We reserve the right to suspend or terminate your access to the platform if:</p>
+                    <div class="custom-list">
+                        <div class="list-item">You violate these Terms.</div>
+                        <div class="list-item">Your use poses a risk to our platform or other users.</div>
+                    </div>
+                    <p>You may also terminate your account at any time by contacting us.</p>
+
+                    <h2>14. Governing Law</h2>
+                    <p>These Terms are governed by and construed in accordance with the laws of [Your Jurisdiction]. Any disputes will be resolved in the courts of [Your Jurisdiction].</p>
+
+                    <h2>15. Changes to Terms</h2>
+                    <p>We may update these Terms from time to time. Significant changes will be notified to you, and your continued use of the platform signifies your acceptance of the revised Terms.</p>
+
+                    <h2>16. Contact Us</h2>
+                    <p>If you have any questions or concerns about these Terms, please contact us:</p>
+                    <div class="custom-list">
+                        <div class="list-item"><strong>Email:</strong> support@consultcareconnect.com</div>
+                        <div class="list-item"><strong>Phone:</strong> +1 (917) 342-5599</div>
+                        <div class="list-item"><strong>Mailing Address:</strong> ConsultCareConnect, Brooklyn, NY 11235</div>
+                    </div>
+
+                    <h2>17. Miscellaneous</h2>
+                    <p>
+                        - If any provision of these Terms is found to be unenforceable, the remaining provisions will remain in effect.<br>
+                        - These Terms constitute the entire agreement between you and ConsultCareConnect.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Privacy Policy Modal -->
+    <div class="modal-overlay generic-modal" id="privacyModal">
+        <div class="modal-container generic-modal">
+            <button class="modal-close generic-modal" onclick="closeModal('privacyModal')">×</button>
+            <div class="modal-content">
+                <h1 class="modal-title generic-modal">Privacy Policy</h1>
+                <div class="modal-body generic-modal">
+                    <p>
+                        <strong>Effective Date:</strong> January 13, 2025
+                    </p>
+                    <p>
+                        ConsultCareConnect (“we,” “our,” or “us”) is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our platform and services. Please read this policy carefully. By accessing or using our platform, you agree to this Privacy Policy. If you do not agree, please do not use our platform.
+                    </p>
+                    <h2>1. Information We Collect</h2>
+                    <p>We collect the following types of information:</p>
+                    <div class="custom-list">
+                        <div class="list-item">
+                            <strong>Personal Information:</strong> Information you provide when creating an account, such as your name, email address, phone number, and payment details.
+                        </div>
+                        <div class="list-item">
+                            <strong>Health Information:</strong> Data you voluntarily share about your symptoms, medical history, or consultations.
+                        </div>
+                        <div class="list-item">
+                            <strong>Usage Data:</strong> Information about how you interact with our platform, including IP addresses, browser type, and activity logs.
+                        </div>
+                        <div class="list-item">
+                            <strong>Device Information:</strong> Details about the device you use to access our platform, such as operating system and hardware information.
+                        </div>
+                    </div>
+                    <h2>2. How We Use Your Information</h2>
+                    <p>We use your information to:</p>
+                    <div class="custom-list">
+                        <div class="list-item">Provide, operate, and improve our platform and services.</div>
+                        <div class="list-item">Facilitate virtual consultations and other services.</div>
+                        <div class="list-item">Communicate with you about your account, transactions, and updates.</div>
+                        <div class="list-item">Analyze usage patterns to enhance user experience.</div>
+                        <div class="list-item">Comply with legal and regulatory requirements.</div>
+                    </div>
+                    <h2>3. How We Share Your Information</h2>
+                    <p>We may share your information in the following circumstances:</p>
+                    <div class="custom-list">
+                        <div class="list-item">With healthcare providers to facilitate consultations or other health services.</div>
+                        <div class="list-item">With third-party service providers for payment processing, analytics, or customer support.</div>
+                        <div class="list-item">In response to legal requests, such as subpoenas or court orders.</div>
+                        <div class="list-item">To protect our platform, users, or the public from harm or fraud.</div>
+                        <div class="list-item">With your explicit consent for specific purposes.</div>
+                    </div>
+                    <h2>4. Cookies and Tracking Technologies</h2>
+                    <p>We use cookies and similar technologies to:</p>
+                    <div class="custom-list">
+                        <div class="list-item">Remember your preferences and enhance your experience.</div>
+                        <div class="list-item">Analyze site traffic and user behavior.</div>
+                        <div class="list-item">Deliver targeted advertisements (where applicable).</div>
+                    </div>
+                    <p>You can manage your cookie preferences in your browser settings.</p>
+                    <h2>5. Data Security</h2>
+                    <p>
+                        We implement industry-standard measures to protect your information. These include encryption, secure servers, and access controls. However, no method of transmission or storage is completely secure, and we cannot guarantee absolute security.
+                    </p>
+                    <h2>6. Your Rights</h2>
+                    <p>Depending on your location, you may have the following rights:</p>
+                    <div class="custom-list">
+                        <div class="list-item">Access and review the information we have collected about you.</div>
+                        <div class="list-item">Request corrections to your personal data.</div>
+                        <div class="list-item">Request the deletion of your personal information.</div>
+                        <div class="list-item">Withdraw consent for data processing.</div>
+                        <div class="list-item">File a complaint with a data protection authority.</div>
+                    </div>
+                    <p>To exercise these rights, please contact us using the information below.</p>
+                    <h2>7. Data Retention</h2>
+                    <p>
+                        We retain your information as long as necessary to provide our services or comply with legal obligations. Once the retention period ends, your data will be securely deleted or anonymized.
+                    </p>
+                    <h2>8. Third-Party Links</h2>
+                    <p>
+                        Our platform may contain links to third-party websites or services. We are not responsible for their privacy practices, and we encourage you to review their privacy policies.
+                    </p>
+                    <h2>9. Children's Privacy</h2>
+                    <p>
+                        Our platform is not intended for individuals under the age of 18. We do not knowingly collect personal information from children. If we discover that we have collected such information, we will delete it promptly.
+                    </p>
+                    <h2>10. Changes to This Privacy Policy</h2>
+                    <p>
+                        We may update this Privacy Policy from time to time. Changes will be posted on this page with the updated effective date. Your continued use of our platform signifies your acceptance of the revised policy.
+                    </p>
+                    <h2>11. Contact Us</h2>
+                    <p>If you have any questions or concerns about this Privacy Policy, please contact us:</p>
+                    <div class="custom-list">
+                        <div class="list-item"><strong>Email:</strong> privacy@consultcareconnect.com</div>
+                        <div class="list-item"><strong>Phone:</strong> +1 (917) 342-5599</div>
+                        <div class="list-item"><strong>Mailing Address:</strong> ConsultCareConnect, Brooklyn, NY 11235</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Help Center Modal -->
+    <div class="modal-overlay generic-modal" id="helpModal">
+        <div class="modal-container generic-modal">
+            <button class="modal-close generic-modal" onclick="closeModal('helpModal')">×</button>
+            <div class="modal-content">
+                <h1 class="modal-title generic-modal">Help Center</h1>
+                <div class="modal-body generic-modal">
+                    <form action="mailto:charlesguythierry@gmail.com" method="post" enctype="text/plain" class="help-center-form">
+                        <!-- Phone Number Field -->
+                        <div class="input-container">
+                            <input type="tel" id="phoneInput" placeholder=" ">
+                            <label for="phoneInput">Phone Number (Optional)</label>
+                        </div>
+
+                        <!-- Name or Email Field -->
+                        <div class="input-container">
+                            <input type="text" id="nameOrEmailInput" placeholder=" " required>
+                            <label for="nameOrEmailInput">Name or Email</label>
+                        </div>
+
+                        <!-- Message Field -->
+                        <div class="input-container">
+                            <textarea id="messageInput" placeholder=" " required></textarea>
+                            <label for="messageInput">Message</label>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit" class="primary-button">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <!-- Footer Links Section -->
+            <div class="footer-links">
+                <a href="#" onclick="openModal('termsModal')" title="View Terms of Service" aria-label="Terms of Service">
+                    Terms of Service
+                </a>
+                <a href="#" onclick="openModal('privacyModal')" title="View Privacy Policy" aria-label="Privacy Policy">
+                    Privacy Policy
+                </a>
+                <a href="#" onclick="openModal('helpModal')" title="Visit Help Center" aria-label="Help Center">
+                    Help Center
+                </a>
+            </div>
+
+            <!-- Footer Social Section -->
+            <div class="footer-social">
+                <ul>
+                    <li class="item">
+                        <a href="https://www.facebook.com" target="_blank" title="Visit Facebook">
+                            <i class="fa-brands fa-facebook icon"></i>
+                        </a>
+                    </li>
+                    <li class="item">
+                        <a href="https://www.instagram.com" target="_blank" title="Visit Instagram">
+                            <i class="fa-brands fa-instagram icon"></i>
+                        </a>
+                    </li>
+                    <li class="item">
+                        <a href="https://www.linkedin.com" target="_blank" title="Visit LinkedIn">
+                            <i class="fa-brands fa-linkedin icon"></i>
+                        </a>
+                    </li>
+                    <li class="item">
+                        <a href="https://x.com" target="_blank" title="Visit Twitter">
+                            <i class="fa-brands fa-x-twitter icon"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            &copy; <span id="footerYear"></span> ConsultCareConnect. All rights reserved.
+        </div>
+    </footer>
+
+
+    <!-- External JavaScript -->
+    <script src="scripts.js"></script>
+    <script src="medical-records.js"></script>
+    <script src="search-bar.js"></script>
+</body>
+
+</html>
