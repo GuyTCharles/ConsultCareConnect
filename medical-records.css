@@ -1,20 +1,6 @@
 /* ================================
    MEDICAL RECORDS PAGE STYLING
    ================================ */
-/**** General Styling ****/
-.medical-records-container {
-    max-width: 800px;
-    margin: 35px auto;
-    /* Adds space above and below the container */
-    padding: 30px 40px;
-    font-family: 'Arial', sans-serif;
-    background-color: #f0f4f8;
-    color: #333;
-    border-radius: 16px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border: 2px solid #e0e0e0;
-}
-
 /**** Header Styling ****/
 .medical-records-header {
     text-align: center;
@@ -585,7 +571,7 @@
 
 .records-modern .medical-records-list,
 .records-modern .upload-records-section {
-    width: min(1040px, calc(100% - 2rem));
+    width: min(870px, calc(100% - 2rem));
     margin-inline: auto;
     background: #ffffff;
     border: 1px solid #d6e4f2;
