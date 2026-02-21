@@ -103,7 +103,7 @@
     align-items: center !important;
     /* Centers vertically */
     position: fixed !important;
-    top: 49% !important;
+    top: 47% !important;
     /* Moves it to the center vertically */
     left: 50% !important;
     /* Moves it to the center horizontally */
@@ -111,10 +111,10 @@
     /* Perfect centering */
     width: 80vw !important;
     /* Ensures it takes an appropriate width */
-    max-width: 850px !important;
+    max-width: 750px !important;
     /* Prevents it from being too wide */
     height: 60vw !important;
-    max-height: 770px;
+    max-height: 750px;
     border-radius: 7px !important;
     /* Smooth rounded edges */
     padding: 30px !important;
@@ -197,17 +197,18 @@
     }
 
     .gsc-results-wrapper-visible {
-        top: 53.8% !important;
+        top: 50% !important;
         width: 80vw !important;
-        max-width: 850px !important;
-        height: 100vh !important;
+        max-width: 750px !important;
+        height: 78vh !important;
         max-height: 750px !important;
     }
 }
 
+/* Medium Tablets */
 @media (max-width: 980px) {
     .gsc-results-wrapper-visible {
-        top: 53% !important;
+        top: 50% !important;
     }
 }
 
@@ -236,9 +237,7 @@
     }
 
     .gsc-results-wrapper-visible {
-        max-width: 650px !important;
-        height: 82vh !important;
-        max-height: 780px !important;
+        height: 69vh !important;
     }
 }
 
@@ -264,9 +263,7 @@
     }
 
     .gsc-results-wrapper-visible {
-        width: 90vw !important;
-        max-width: 600px !important;
-        height: 83vh !important;
+        height: 70vh !important;
         max-height: 800px !important;
     }
 }
@@ -1340,6 +1337,19 @@
     box-shadow: 0 22px 48px rgba(7, 25, 48, 0.34) !important;
 }
 
+/* Match Web/Image strip with light-mode results modal surface */
+.symptoms-modern .gsc-above-wrapper-area-container,
+.symptoms-modern .gsc-above-wrapper-area,
+.symptoms-modern .gsc-tabsArea,
+.symptoms-modern .gsc-tabHeader,
+.symptoms-modern .gsc-tabHeader.gsc-inline-block,
+.symptoms-modern .gsc-tabHeader.gsc-tabhActive,
+.symptoms-modern .gsc-tabHeader.gsc-tabhInactive {
+    background: linear-gradient(170deg, rgba(255, 255, 255, 0.98), rgba(240, 248, 255, 0.96)) !important;
+}
+
+
+
 .symptoms-modern.dark-mode .search-overlay {
     background:
         radial-gradient(circle at 18% 12%, rgba(83, 170, 255, 0.16), transparent 32%),
@@ -1359,6 +1369,7 @@
 .symptoms-modern.dark-mode .gsc-tabsArea {
     background: rgba(16, 32, 51, 0.96) !important;
 }
+
 
 .symptoms-modern.dark-mode .gsc-tabHeader,
 .symptoms-modern.dark-mode .gsc-tabHeader.gsc-inline-block,
