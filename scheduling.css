@@ -1018,6 +1018,10 @@
 }
 
 @media (max-width: 768px) {
+   .consultation-highlights {
+        justify-content: center !important;
+    }
+   
     .scheduling-modern .consultation-section {
         border-radius: 16px;
         padding: 1.2rem 0.8rem 1.2rem;
