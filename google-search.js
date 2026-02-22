@@ -1,175 +1,117 @@
 /* ===============================================
    SYMPTOMS CHECKER PAGE AND GOOGLE SEARCH SCRIPTS
    =============================================== */
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
     const searchOverlay = document.getElementById("searchOverlay");
-    let resultsVisible = false;
+    const cseModalRoot = document.getElementById("cseModalRoot");
+    if (!searchOverlay) return;
 
-    // Function to check if Google Search Results are visible
-    function toggleSearchOverlay() {
-        const searchResults = document.querySelector(".gsc-results-wrapper-visible");
+    let rafId = null;
+    const LAYERS = {
+        backdrop: "1000",
+        resultsOverlay: "1001",
+        resultsPanel: "1002"
+    };
 
-        if (searchResults && searchResults.offsetHeight > 0) {
-            searchOverlay.style.display = "block"; // Show overlay
-            resultsVisible = true;
-        } else {
-            hideSearchOverlay(); // Hide overlay when search results disappear
-        }
+    function getResultsPanel() {
+        const panel = document.querySelector(".gsc-results-wrapper-visible");
+        if (!panel) return null;
+        // For fixed-position Google modal, offsetParent can be null even when visible.
+        const style = window.getComputedStyle(panel);
+        const rect = panel.getBoundingClientRect();
+        const isVisible =
+            style.display !== "none" &&
+            style.visibility !== "hidden" &&
+            parseFloat(style.opacity || "1") > 0 &&
+            rect.width > 0 &&
+            rect.height > 0;
+        if (!isVisible) return null;
+        return panel;
     }
 
-    // Function to hide the overlay properly
-    function hideSearchOverlay() {
-        searchOverlay.style.display = "none";
-        resultsVisible = false;
-    }
-
-    // Monitor DOM changes to detect when Google Search results appear
-    const observer = new MutationObserver(toggleSearchOverlay);
-    observer.observe(document.body, {
-        childList: true,
-        subtree: true
-    });
-
-    // Close overlay when clicking outside the search results
-    searchOverlay.addEventListener("click", function () {
-        if (resultsVisible) {
-            hideSearchOverlay();
-            const closeButton = document.querySelector(".gsc-results-close-btn");
-            if (closeButton) closeButton.click(); // Close Google Search Results
-        }
-    });
-
-    // Hide overlay when search results disappear
-    document.addEventListener("click", function (event) {
-        if (!document.querySelector(".gsc-results-wrapper-visible")) {
-            hideSearchOverlay();
-        }
-    });
-
-    // Ensure overlay disappears on page load
-    window.addEventListener("load", hideSearchOverlay);
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-    const searchOverlay = document.getElementById("searchOverlay");
-    let resultsVisible = false;
-
-    // Function to check if Google Search Results are visible
-    function toggleSearchOverlay() {
-        const searchResults = document.querySelector(".gsc-results-wrapper-visible");
-
-        if (searchResults && searchResults.offsetHeight > 0) {
-            searchOverlay.classList.add("active"); // Show overlay
-            searchOverlay.classList.remove("hidden");
-            resultsVisible = true;
-        } else {
-            hideSearchOverlay(); // Hide overlay when search results disappear
-        }
-    }
-
-    // Function to hide the overlay properly
-    function hideSearchOverlay() {
-        searchOverlay.classList.remove("active");
-        searchOverlay.classList.add("hidden");
-        resultsVisible = false;
-    }
-
-    // Monitor DOM changes to detect when Google Search results appear
-    const observer = new MutationObserver(toggleSearchOverlay);
-    observer.observe(document.body, {
-        childList: true,
-        subtree: true
-    });
-
-    // Close overlay when clicking outside the search results
-    searchOverlay.addEventListener("click", function () {
-        if (resultsVisible) {
-            hideSearchOverlay();
-            const closeButton = document.querySelector(".gsc-results-close-btn");
-            if (closeButton) closeButton.click(); // Close Google Search Results
-        }
-    });
-
-    // Hide overlay when search results disappear
-    document.addEventListener("click", function (event) {
-        if (!document.querySelector(".gsc-results-wrapper-visible")) {
-            hideSearchOverlay();
-        }
-    });
-
-    // Ensure "X" Button (gsc-clear-button) Also Hides the Overlay
-    document.addEventListener("click", function (event) {
-        const clearButton = document.querySelector(".gsc-clear-button");
-        if (clearButton && event.target === clearButton) {
-            hideSearchOverlay();
-        }
-    });
-
-    // Ensure overlay reappears after refresh if search results exist
-    restoreOverlayOnLoad();
-});
-
-// Function to apply the custom search overlay
-function applySearchOverlay() {
-    const searchOverlay = document.querySelector('.search-overlay');
-    const searchResults = document.querySelector('.gsc-results-wrapper-visible');
-
-    if (searchResults && searchResults.offsetHeight > 0) {
+    function showOverlay() {
+        // Backdrop layer: below Google modal panel.
+        searchOverlay.style.zIndex = LAYERS.backdrop;
+        searchOverlay.style.display = "block";
         searchOverlay.classList.add("active");
         searchOverlay.classList.remove("hidden");
-    } else {
+        if (cseModalRoot) {
+            cseModalRoot.style.visibility = "visible";
+            cseModalRoot.style.pointerEvents = "auto";
+        }
+    }
+
+    function hideOverlay() {
+        searchOverlay.style.display = "none";
         searchOverlay.classList.remove("active");
         searchOverlay.classList.add("hidden");
-    }
-}
-
-// Function to close search results when clicking outside
-function closeSearchResults() {
-    const searchOverlay = document.querySelector('.search-overlay');
-    const searchBox = document.querySelector('.gsc-input-box input');
-    const closeButton = document.querySelector('.gsc-clear-button'); // Google Search Clear "X" Button
-
-    if (searchOverlay) {
-        searchOverlay.addEventListener('click', (event) => {
-            event.stopPropagation(); // Prevents duplicate clicks
-            document.querySelector('.gsc-clear-button')?.click();
-            searchOverlay.classList.remove("active");
-            searchOverlay.classList.add("hidden");
-            searchBox.blur();
-        });
+        if (cseModalRoot) {
+            cseModalRoot.style.visibility = "hidden";
+            cseModalRoot.style.pointerEvents = "none";
+        }
     }
 
-    if (closeButton) {
-        closeButton.addEventListener('click', (event) => {
-            event.stopPropagation();
-            hideSearchOverlay(); // Hides overlay when clicking "X"**
-        });
+    function closeGoogleResults() {
+        const closeBtn = document.querySelector(".gsc-results-close-btn");
+        const clearBtn = document.querySelector(".gsc-clear-button");
+        if (closeBtn) closeBtn.click();
+        if (clearBtn) clearBtn.click();
     }
-}
 
-// Observe the search results container for changes
-function observeSearchResults() {
-    const resultsContainer = document.querySelector('.gsc-results-wrapper-overlay');
+    function enforceModalOnTop(panel) {
+        const overlayContainer =
+            document.querySelector(".gsc-results-wrapper-overlay") ||
+            panel.closest(".gsc-results-wrapper-overlay");
+        const googleBackdrop = document.querySelector(".gsc-modal-background-image");
 
-    if (resultsContainer) {
-        const observer = new MutationObserver(() => {
-            applySearchOverlay();
-        });
+        if (overlayContainer) {
+            overlayContainer.style.position = "fixed";
+            overlayContainer.style.zIndex = LAYERS.resultsOverlay;
+        }
 
-        observer.observe(resultsContainer, { childList: true, subtree: true });
+        panel.style.position = "fixed";
+        panel.style.zIndex = LAYERS.resultsPanel;
+
+        // Neutralize Google's own dim layer so custom backdrop is the only one.
+        if (googleBackdrop) {
+            googleBackdrop.style.display = "none";
+            googleBackdrop.style.pointerEvents = "none";
+        }
     }
-}
 
-// Ensure overlay reappears after refresh if search results exist
-function restoreOverlayOnLoad() {
-    const searchResults = document.querySelector('.gsc-results-wrapper-visible');
-    if (searchResults && searchResults.offsetHeight > 0) {
-        applySearchOverlay(); // Reapply overlay if results are visible
+    function syncOverlayState() {
+        rafId = null;
+        const panel = getResultsPanel();
+        if (panel) {
+            enforceModalOnTop(panel);
+            showOverlay();
+        } else {
+            hideOverlay();
+        }
     }
-}
 
-// Prevent duplicate overlays when refreshing
-window.addEventListener('load', function() {
-    document.querySelectorAll('.gsc-modal-background-image').forEach(el => el.remove());
-    restoreOverlayOnLoad(); // Reapply overlay instantly
+    function scheduleSync() {
+        if (rafId !== null) return;
+        rafId = requestAnimationFrame(syncOverlayState);
+    }
+
+    // Clicking the page backdrop should close Google results modal.
+    searchOverlay.addEventListener("click", () => {
+        closeGoogleResults();
+        hideOverlay();
+    });
+
+    // Google CSE mutates DOM aggressively; observe once and coalesce updates.
+    const observer = new MutationObserver(scheduleSync);
+    observer.observe(document.body, {
+        childList: true,
+        subtree: true,
+        attributes: true,
+        attributeFilter: ["class", "style"]
+    });
+
+    // Keep state aligned across clicks and initial page load.
+    document.addEventListener("click", scheduleSync, true);
+    window.addEventListener("load", scheduleSync);
+    scheduleSync();
 });
