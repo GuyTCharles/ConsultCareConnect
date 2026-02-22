@@ -1771,8 +1771,7 @@
 .modal-close::before {
     content: "×";
     display: block;
-    margin-bottom: -3px;
-    font-size: 1.22rem;
+    font-size: 1.15rem;
     line-height: 1;
     color: currentColor;
     transform: translateY(-0.02em);
