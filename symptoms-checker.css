@@ -233,6 +233,11 @@
         height: 85vh !important;
         max-height: 825px !important;
     }
+
+    .symptoms-modern .gsc-results .gsc-webResult.gsc-result,
+    .symptoms-modern .gsc-results .gsc-result {
+        margin-bottom: 0 !important;
+    }
 }
 
 /* ================================
@@ -1592,7 +1597,6 @@
 
     .symptoms-modern .gsc-results .gsc-webResult.gsc-result,
     .symptoms-modern .gsc-results .gsc-result {
-        margin: 0 !important;
         margin-bottom: 0 !important;
     }
 }
