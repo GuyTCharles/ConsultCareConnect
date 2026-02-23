@@ -1,6 +1,6 @@
-/* ==========================================================
+/* ====================
    SEARCH FUNCTIONALITY
-========================================================== */
+======================= */
 const searchIcon = document.querySelector('.search-icon');
 const searchContainer = document.createElement('div');
 searchContainer.classList.add('search-container');
@@ -62,9 +62,20 @@ function positionSearchContainer() {
     left = Math.max(margin, Math.min(left, window.innerWidth - containerWidth - margin));
     const top = iconRect.bottom + 10;
 
+    searchContainer.style.position = 'fixed';
     searchContainer.style.left = `${left}px`;
     searchContainer.style.top = `${top}px`;
     searchContainer.style.right = 'auto';
+}
+
+function focusSearchInputWithoutJump() {
+    try {
+        searchInput.focus({
+            preventScroll: true
+        });
+    } catch (_error) {
+        searchInput.focus();
+    }
 }
 
 // ✅ Toggle search bar visibility when clicking the search icon
@@ -78,7 +89,10 @@ searchIcon.addEventListener('click', (event) => {
 
     if (!isVisible) {
         positionSearchContainer();
-        searchInput.focus();
+        // Avoid iOS/Android auto-scroll side effects when opening search mid-page.
+        if (!window.matchMedia('(pointer: coarse)').matches) {
+            focusSearchInputWithoutJump();
+        }
     }
 });
 
