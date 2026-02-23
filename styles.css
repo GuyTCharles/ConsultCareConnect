@@ -185,113 +185,7 @@ main {
 }
 
 .card {
-    background-color: #fff;
-    padding: 30px;
-    margin-bottom: 50px;
-    width: 280px;
     height: 300px;
-    /* Adjust the height based on your design */
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    position: relative;
-    background-size: cover;
-    /* Ensures the image covers the entire card */
-    background-position: center;
-    /* Ensures the image is centered */
-    transition: transform 0.3s ease;
-    overflow: hidden;
-    /* Hide any overflow outside the card */
-}
-
-.card:hover {
-    transform: translateY(-10px);
-    /* Slight hover effect */
-}
-
-/* Card Titles */
-.card h3 {
-    font-size: 1.4rem;
-    text-align: center;
-    margin-bottom: 20px;
-    font-weight: 500;
-    color: #fff;
-    position: absolute;
-    top: 20px;
-    left: 10px;
-    right: 10px;
-    z-index: 1;
-    /* Ensure text appears above the image */
-}
-
-/* Card Buttons */
-.card button {
-    background-color: #1d9bf0;
-    color: #fff;
-    padding: 13px 0;
-    /* Match padding with modal buttons */
-    border: none;
-    border-radius: 10px;
-    /* Rounded corners to match modal buttons */
-    cursor: pointer;
-    font-size: 1rem;
-    /* Adjust font size to match modal buttons */
-    width: 70%;
-    /* Ensure button width is visually consistent */
-    position: absolute;
-    bottom: 22px;
-    /* Keep button at the bottom of the card */
-    left: 50%;
-    /* Horizontally center the button */
-    transform: translateX(-50%);
-    /* Adjust the button position to center it */
-    z-index: 1;
-    text-align: center;
-    /* Ensure text is centered */
-}
-
-/* Button Hover Effect */
-.card button:hover {
-    background-color: #1d4e89;
-    /* Match modal button hover color */
-}
-
-/* Background Images for Each Card */
-#card-1 {
-    background-image: url('images/doctor-avatar1.jpg');
-    /* Image path for card 1 */
-}
-
-#card-2 {
-    background-image: url('images/medical-records2.jpg');
-    /* Image path for card 2 */
-}
-
-#card-3 {
-    background-image: url('images/healthcare-online-clinic.jpg');
-    /* Image path for card 3 */
-}
-
-/* Overlay for better text contrast */
-.card::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.45);
-    /* Overlay with transparency */
-    z-index: 0;
-    /* Place overlay behind the text */
-}
-
-/* Action Buttons Section */
-.action-buttons {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 25px;
-    padding: 0 30%;
 }
 
 /* Round Buttons */
@@ -302,24 +196,50 @@ main {
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    background-color: #1d4e89;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    background: linear-gradient(145deg, #1f8bf4, #1b6cc1);
     color: #fff;
     text-decoration: none;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 10px 22px rgba(13, 42, 75, 0.26);
+    transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease, background-color 0.18s ease;
     font-size: 1.5rem;
     position: relative;
     overflow: hidden;
 }
 
+.round-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 24px rgba(13, 42, 75, 0.32);
+    filter: brightness(1.03);
+}
+
+.round-button:active {
+    transform: translateY(0);
+    box-shadow: 0 7px 14px rgba(13, 42, 75, 0.24);
+}
+
+.round-button:focus-visible {
+    outline: 3px solid #7bb4ea;
+    outline-offset: 2px;
+}
+
+/* Action Buttons Section */
+.action-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 25px;
+    padding: 0 34% !important;
+}
+
 /* Call Button Specific Styles */
 .call-button {
-    background-color: #28a745;
-    /* Green */
+    background: linear-gradient(145deg, #2aa851, #218845);
+    border-color: rgba(213, 240, 221, 0.7);
 }
 
 .call-button:hover {
-    background-color: #1e7d32;
+    background: linear-gradient(145deg, #289a4b, #1d793c);
 }
 
 /* Animation for username display */
@@ -1040,21 +960,6 @@ body.dark-mode {
     border: 1px solid #c5def4;
 }
 
-.home-modern .card-action:hover {
-    transform: translateY(-4px);
-    border-color: #aacdee;
-    box-shadow: 0 16px 34px rgba(17, 47, 86, 0.2);
-}
-
-.home-modern .card-action:focus-visible {
-    outline: 3px solid #7bb4ea;
-    outline-offset: 2px;
-}
-
-.home-modern .card-action:hover .card-cta {
-    background: #d9ecff;
-}
-
 .home-modern #card-1,
 .home-modern #card-2,
 .home-modern #card-3 {
@@ -1353,7 +1258,7 @@ body.dark-mode {
     }
 
     .home-modern .action-buttons {
-        padding: 0 27%;
+        padding: 0 28% !important;
     }
 }
 
@@ -1399,7 +1304,7 @@ body.dark-mode {
     }
 
     .home-modern .action-buttons {
-        padding: 0 20%;
+        padding: 0 26% !important;
     }
 
     .home-modern .footer-links {
@@ -1475,7 +1380,7 @@ body.dark-mode {
     }
 
     .home-modern .action-buttons {
-        padding: 0 11%;
+        padding: 0 16% !important;
     }
 }
 
@@ -1494,6 +1399,10 @@ body.dark-mode {
 
     .home-modern .card-copy {
         font-size: 0.9rem;
+    }
+    
+    .home-modern .action-buttons {
+        padding: 0 14% !important;
     }
 }
 
