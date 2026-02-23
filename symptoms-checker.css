@@ -233,11 +233,6 @@
         height: 85vh !important;
         max-height: 825px !important;
     }
-
-    .symptoms-modern .gsc-webResult.gsc-result,
-    .symptoms-modern .gsc-result {
-        margin: 0 !important;
-    }
 }
 
 /* ================================
@@ -1553,11 +1548,10 @@
             margin-top: 0.5rem !important;
         }
 
-        .symptoms-modern .gsc-webResult.gsc-result,
-        .symptoms-modern .gsc-result {
-            margin: 0 0 0.6rem 0 !important;
-            padding: 0.72rem 0.68rem !important;
-            border-radius: 12px !important;
+        .symptoms-modern .gsc-results .gsc-webResult.gsc-result,
+        .symptoms-modern .gsc-results .gsc-result {
+            margin: 0 !important;
+            margin-bottom: 0 !important;
         }
     }
 }
