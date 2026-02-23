@@ -80,17 +80,10 @@ header {
 }
 
 .logo-img {
-    width: 60px;
+    width: 65px;
     /* Adjusted size for the logo image */
-    height: 55px;
-    margin-right: 15px;
-    /* Space between logo image and text */
-    border-radius: 22%;
-    /* Optional: makes the image rounded */
-    background-color: #FFF;
-    /* Optional: adds white background behind logo image */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    /* Subtle shadow */
+    height: 67px;
+    margin-right: 10px;
 }
 
 /* Logo Text */
@@ -1365,6 +1358,11 @@ body.dark-mode {
 }
 
 @media (max-width: 768px) {
+     .logo-img {
+        width: 62.5px;
+        height: 64.5px;
+    } 
+    
     .home-modern .home-section {
         border-radius: 16px;
         padding: 1.4rem 1rem 1.4rem;
@@ -1378,9 +1376,9 @@ body.dark-mode {
         grid-template-columns: repeat(1, minmax(300px, 320px));
         justify-content: center;
     }
-    
+
     .home-modern .hero-content {
-        padding: 2.5rem 0 2.5rem ;
+        padding: 2.5rem 0 2.5rem;
     }
 
     .home-modern .hero-content h1 {
@@ -1445,6 +1443,11 @@ body.dark-mode {
 }
 
 @media (max-width: 600px) {
+    .logo-img {
+        width: 58px;
+        height: 60px;
+    }
+    
     .home-modern .hero-content {
         padding: 1.75rem 0 2.5rem;
     }
@@ -1455,11 +1458,6 @@ body.dark-mode {
 
     .home-modern .hero-btn {
         width: 100%;
-    }
-
-    .logo-img {
-        width: 53px;
-        height: 50px;
     }
 
     .home-modern .logo-text {
