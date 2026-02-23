@@ -294,14 +294,18 @@
 }
 
 .dark-mode .home-icon {
-    background-color: rgba(24, 49, 83, 0.85); /* Dark blue with slight transparency */
-    backdrop-filter: blur(5px); /* Subtle background blur */
+    background-color: rgba(24, 49, 83, 0.85);
+    /* Dark blue with slight transparency */
+    backdrop-filter: blur(5px);
+    /* Subtle background blur */
     border: 2px solid transparent;
 }
 
 .dark-mode .search-img {
-    background-color: rgba(24, 49, 83, 0.85); /* Dark blue with slight transparency */
-    backdrop-filter: blur(5px); /* Subtle background blur */
+    background-color: rgba(24, 49, 83, 0.85);
+    /* Dark blue with slight transparency */
+    backdrop-filter: blur(5px);
+    /* Subtle background blur */
     border: 2px solid transparent;
 }
 
@@ -386,14 +390,16 @@
 
 /* Dark mode button */
 .dark-mode .submit-button {
-    background-color: hsl(204, 87%, 55%); /* #1d9bf0 */
+    background-color: hsl(204, 87%, 55%);
+    /* #1d9bf0 */
     color: hsl(0, 0%, 100%);
     transition: background-color 0.3s ease, transform 0.2s ease;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .dark-mode .submit-button:hover {
-    background-color: hsl(211, 67%, 33%); /* #1d4e89 */
+    background-color: hsl(211, 67%, 33%);
+    /* #1d4e89 */
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
 
@@ -405,19 +411,23 @@
 
 /* Dark mode consultation buttons */
 .dark-mode .join-button {
-    background-color: hsl(204, 87%, 55%); /* #1d9bf0 */
+    background-color: hsl(204, 87%, 55%);
+    /* #1d9bf0 */
 }
 
 .dark-mode .join-button:hover {
-    background-color: hsl(211, 67%, 33%); /* #1d4e89 */
+    background-color: hsl(211, 67%, 33%);
+    /* #1d4e89 */
 }
 
 .dark-mode .end-button {
-    background-color: hsl(4, 78%, 58%); /* #e53935 */
+    background-color: hsl(4, 78%, 58%);
+    /* #e53935 */
 }
 
 .dark-mode .end-button:hover {
-    background-color: hsl(0, 74%, 41%); /* #b71c1c */
+    background-color: hsl(0, 74%, 41%);
+    /* #b71c1c */
 }
 
 /* Ensure modals retain their original styles */
@@ -479,7 +489,9 @@
     background-color: transparent !important;
     color: #333 !important;
     /* Keep the original dark color */
-}/* ===== Merged from scheduling-modern.css ===== */
+}
+
+/* ===== Merged from scheduling-modern.css ===== */
 
 .scheduling-modern {
     background:
@@ -491,8 +503,9 @@
 }
 
 .scheduling-modern header {
-    background: rgba(12, 52, 95, 0.92);
-    backdrop-filter: blur(8px);
+    background: #0c345f;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
     border-bottom: 1px solid rgba(255, 255, 255, 0.12);
     position: sticky;
     top: 0;
@@ -1018,10 +1031,6 @@
 }
 
 @media (max-width: 768px) {
-   .consultation-highlights {
-        justify-content: center !important;
-    }
-   
     .scheduling-modern .consultation-section {
         border-radius: 16px;
         padding: 1.2rem 0.8rem 1.2rem;
@@ -1035,7 +1044,7 @@
     .scheduling-modern .dropdowns {
         margin: 12px 0;
     }
-    
+
     .scheduling-modern .footer-links {
         order: 2;
         flex-direction: column;
@@ -1045,18 +1054,18 @@
         gap: 0.5rem;
         text-align: center;
     }
-    
+
     .scheduling-modern .footer-social {
         order: 1;
         margin-right: 0;
     }
-    
+
     .scheduling-modern .footer-content {
         flex-direction: column;
         justify-content: center;
         align-items: center;
     }
-    
+
     .scheduling-modern .footer-links a {
         font-size: 0.84rem;
         padding: 0.41rem 0.66rem;
@@ -1097,7 +1106,6 @@
 }
 
 /* ===== Merged from consultation-modern.css ===== */
-
 .consultation-modern {
     background:
         radial-gradient(circle at 12% 10%, rgba(52, 152, 255, 0.16), transparent 30%),
@@ -1108,8 +1116,9 @@
 }
 
 .consultation-modern header {
-    background: rgba(12, 52, 95, 0.92);
-    backdrop-filter: blur(8px);
+    background: #0c345f;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
     border-bottom: 1px solid rgba(255, 255, 255, 0.12);
     position: sticky;
     top: 0;
@@ -1447,7 +1456,10 @@
 }
 
 @media (max-width: 768px) {
-    
+    .consultation-highlights {
+        justify-content: center !important;
+    }
+
     .consultation-modern .footer-links {
         order: 2;
         flex-direction: column;
