@@ -591,6 +591,17 @@
     z-index: 1000;
 }
 
+/* Keep site search modal above sticky header on symptoms page */
+.symptoms-modern .search-container {
+    z-index: 1200 !important;
+}
+
+/* When Google results modal is open, keep site search modal behind it */
+.symptoms-modern #searchOverlay.active~.search-container {
+    z-index: 900 !important;
+    pointer-events: none !important;
+}
+
 .symptoms-modern .logo-text {
     font-family: 'Sora', 'Manrope', sans-serif;
     font-size: 1.8rem;
