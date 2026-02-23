@@ -1,6 +1,6 @@
 /* ====================
    SEARCH FUNCTIONALITY
-======================= */
+   ==================== */
 const searchIcon = document.querySelector('.search-icon');
 const searchContainer = document.createElement('div');
 searchContainer.classList.add('search-container');
