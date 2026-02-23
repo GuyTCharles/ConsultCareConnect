@@ -1589,4 +1589,10 @@
     .symptoms-modern .gsc-results-wrapper-visible {
         max-height: 84vh !important;
     }
+
+    .symptoms-modern .gsc-results .gsc-webResult.gsc-result,
+    .symptoms-modern .gsc-results .gsc-result {
+        margin: 0 !important;
+        margin-bottom: 0 !important;
+    }
 }
