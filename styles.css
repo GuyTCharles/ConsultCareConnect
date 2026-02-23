@@ -185,7 +185,18 @@ main {
 }
 
 .card {
+    background-color: #fff;
+    padding: 30px;
+    margin-bottom: 50px;
+    width: 280px;
     height: 300px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.3s ease;
+    overflow: hidden;
 }
 
 /* Round Buttons */
@@ -913,6 +924,21 @@ body.dark-mode {
 
 .home-modern .card-action {
     cursor: pointer;
+}
+
+.home-modern .card-action:hover {
+    transform: translateY(-4px);
+    border-color: #aacdee;
+    box-shadow: 0 16px 34px rgba(17, 47, 86, 0.2);
+}
+
+.home-modern .card-action:focus-visible {
+    outline: 3px solid #7bb4ea;
+    outline-offset: 2px;
+}
+
+.home-modern .card-action:hover .card-cta {
+    background: #d9ecff;
 }
 
 .home-modern .card h3 {
