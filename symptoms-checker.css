@@ -1336,6 +1336,15 @@
     background: linear-gradient(170deg, rgba(255, 255, 255, 0.45), rgba(240, 248, 255, 0.50)) !important;
 }
 
+/* Center Web/Image tabs */
+.symptoms-modern .gsc-tabsArea {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: .5rem !important;
+    text-align: center !important;
+}
+
 /* Softer result cards without separator lines */
 .symptoms-modern .gsc-webResult.gsc-result,
 .symptoms-modern .gsc-result {
@@ -1508,4 +1517,33 @@
 
 .symptoms-modern .gsc-results-wrapper-visible {
     opacity: 1 !important;
+}
+
+/* iOS/iPadOS Safari: force a consistent modal layout across iPhone and iPad */
+@supports (-webkit-touch-callout: none) {
+    @media (pointer: coarse) {
+        .symptoms-modern .gsc-results-wrapper-visible {
+            top: 50% !important;
+            left: 50% !important;
+            transform: translate(-50%, -50%) !important;
+            width: min(94vw, 780px) !important;
+            height: auto !important;
+            max-height: 84dvh !important;
+            padding: 16px !important;
+            border-radius: 12px !important;
+            overflow: auto !important;
+            -webkit-overflow-scrolling: touch !important;
+        }
+
+        .symptoms-modern .gsc-results .gsc-cursor-box {
+            margin-top: 0.5rem !important;
+        }
+
+        .symptoms-modern .gsc-webResult.gsc-result,
+        .symptoms-modern .gsc-result {
+            margin: 0 0 0.6rem 0 !important;
+            padding: 0.72rem 0.68rem !important;
+            border-radius: 12px !important;
+        }
+    }
 }
