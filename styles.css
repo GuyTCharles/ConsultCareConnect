@@ -709,9 +709,8 @@ body.dark-mode {
 }
 
 .home-modern header {
-    background: #0c345f;
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
+    background: rgba(12, 52, 95, 0.92);
+    backdrop-filter: blur(8px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     position: sticky;
     top: 0;
