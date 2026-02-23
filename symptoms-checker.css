@@ -1424,14 +1424,14 @@
 .symptoms-modern .gsc-cursor-box {
     background: rgba(226, 239, 252, 0.95) !important;
     border: 1px solid rgba(181, 208, 234, 0.92) !important;
-    border-radius: 18px !important;
     padding: 0.55rem 0.8rem !important;
+    margin: 0 !important;
 }
 
 .symptoms-modern .gsc-cursor-page {
     color: #3f5f82 !important;
     background: transparent !important;
-    border-radius: 8px !important;
+    border-radius: 50% !important;
     padding: 0.14rem 0.35rem !important;
     font-weight: 700 !important;
 }
@@ -1528,30 +1528,65 @@
     opacity: 1 !important;
 }
 
-/* iOS/iPadOS Safari: force a consistent modal layout across iPhone and iPad */
-@supports (-webkit-touch-callout: none) {
-    @media (pointer: coarse) {
-        .symptoms-modern .gsc-results-wrapper-visible {
-            top: 50% !important;
-            left: 50% !important;
-            transform: translate(-50%, -50%) !important;
-            width: min(94vw, 780px) !important;
-            height: auto !important;
-            max-height: 84dvh !important;
-            padding: 16px !important;
-            border-radius: 12px !important;
-            overflow: auto !important;
-            -webkit-overflow-scrolling: touch !important;
-        }
+/* Rounded modal scrollbar to match results panel radius */
+.symptoms-modern .gsc-results-wrapper-visible {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(164, 187, 212, 0.95) rgba(231, 240, 249, 0.9);
+}
 
-        .symptoms-modern .gsc-results .gsc-cursor-box {
-            margin-top: 0.5rem !important;
-        }
+.symptoms-modern .gsc-results-wrapper-visible::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
 
-        .symptoms-modern .gsc-results .gsc-webResult.gsc-result,
-        .symptoms-modern .gsc-results .gsc-result {
-            margin: 0 !important;
-            margin-bottom: 0 !important;
-        }
+.symptoms-modern .gsc-results-wrapper-visible::-webkit-scrollbar-track {
+    background: rgba(231, 240, 249, 0.9);
+    border-radius: 12px;
+}
+
+.symptoms-modern .gsc-results-wrapper-visible::-webkit-scrollbar-thumb {
+    background: rgba(164, 187, 212, 0.95);
+    border-radius: 12px;
+    border: 2px solid rgba(231, 240, 249, 0.9);
+}
+
+.symptoms-modern .gsc-results-wrapper-visible::-webkit-scrollbar-corner {
+    background: transparent;
+}
+
+.symptoms-modern .gsc-results-wrapper-visible::-webkit-scrollbar-thumb:hover {
+    background: rgba(140, 169, 198, 0.98);
+}
+
+.symptoms-modern.dark-mode .gsc-results-wrapper-visible {
+    scrollbar-color: rgba(89, 122, 156, 0.96) rgba(19, 35, 54, 0.88);
+}
+
+.symptoms-modern.dark-mode .gsc-results-wrapper-visible::-webkit-scrollbar-track {
+    background: rgba(19, 35, 54, 0.88);
+}
+
+.symptoms-modern.dark-mode .gsc-results-wrapper-visible::-webkit-scrollbar-thumb {
+    background: rgba(89, 122, 156, 0.96);
+    border-color: rgba(19, 35, 54, 0.88);
+}
+
+/* Unified modal viewport across desktop, tablet, and mobile */
+.symptoms-modern .gsc-results-wrapper-visible {
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: min(94vw, 780px) !important;
+    height: auto !important;
+    max-height: 84dvh !important;
+    padding: 16px !important;
+    border-radius: 12px !important;
+    overflow: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+}
+
+@supports not (height: 1dvh) {
+    .symptoms-modern .gsc-results-wrapper-visible {
+        max-height: 84vh !important;
     }
 }
