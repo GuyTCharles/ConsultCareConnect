@@ -107,7 +107,7 @@
     /* Perfect centering */
     width: 80vw !important;
     /* Ensures it takes an appropriate width */
-    max-width: 780px !important;
+    max-width: 750px !important;
     /* Prevents it from being too wide */
     height: 80vw !important;
     max-height: 780px;
