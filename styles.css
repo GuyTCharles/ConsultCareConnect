@@ -709,8 +709,9 @@ body.dark-mode {
 }
 
 .home-modern header {
-    background: rgba(12, 52, 95, 0.92);
-    backdrop-filter: blur(8px);
+    background: #0c345f;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     position: sticky;
     top: 0;
@@ -1075,7 +1076,7 @@ body.dark-mode {
 }
 
 .home-modern footer {
-    background: linear-gradient(170deg, #0c3c6f, #114d88);
+    background: linear-gradient(170deg, #0d3f72, #0f4c86);
 }
 
 .home-modern .footer-content {
