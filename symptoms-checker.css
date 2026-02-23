@@ -194,10 +194,7 @@
 
     .gsc-results-wrapper-visible {
         top: 47% !important;
-        width: 80vw !important;
-        max-width: 780px !important;
-        height: 80vh !important;
-        max-height: 800px !important;
+        max-height: 800px;
     }
 }
 
@@ -231,6 +228,11 @@
         grid-template-columns: 1fr;
         row-gap: 0.25rem;
         padding: 0.7rem;
+    }
+    
+    .gsc-results-wrapper-visible {
+        height: 85vh !important;
+        max-height: 825px !important;
     }
 }
 
