@@ -1338,12 +1338,9 @@
 
 /* Center Web/Image tabs */
 .symptoms-modern .gsc-tabsArea {
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
     gap: .5rem !important;
-    text-align: center !important;
 }
+
 
 /* Softer result cards without separator lines */
 .symptoms-modern .gsc-webResult.gsc-result,
