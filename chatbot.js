@@ -293,9 +293,10 @@ I am Nexa, your virtual assistant. I can help with common questions about our pl
 
         let response;
         if (intent && score >= 2) {
-            const suggestions = intent.suggestions && intent.suggestions.length
-                ? topicPrompt("Helpful next options:", intent.suggestions)
-                : "";
+            let suggestions = "";
+            if (intent.suggestions && intent.suggestions.length) {
+                suggestions = topicPrompt("Helpful next options:", intent.suggestions);
+            }
             response = `${intent.reply}${suggestions ? `<br><br>${suggestions}` : ""}`;
         } else {
             response = topicPrompt(
