@@ -583,13 +583,11 @@ body.dark-mode {
    ================================ */
 /* Ensure Call Button retains green color */
 .dark-mode .call-button {
-    background-color: hsl(134, 61%, 41%) !important;
-    /* Original Green */
+    background: linear-gradient(145deg, #2aa851, #218845) !important;
 }
 
 .dark-mode .call-button:hover {
-    background-color: hsl(134, 61%, 35%) !important;
-    /* Darker Green on Hover */
+    background: linear-gradient(145deg, #289a4b, #1d793c) !important;
 }
 
 /* Ensure Join Button retains original color */
